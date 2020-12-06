@@ -3,7 +3,9 @@ name = "rustdoc-types"
 version = "0.1.0"
 authors = ["Nixon Enraght-Moony <nixon.emoony@gmail.com>", "The Rust Project Developers"]
 edition = "2018"
-license = "Apache-2.0 or MIT"
+license = "MIT OR Apache-2.0"
+description = "Types for rustdoc's json output"
+repository = "https://github.com/aDotInTheVoid/rustdoc-types/"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
