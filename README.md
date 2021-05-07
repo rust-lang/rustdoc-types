@@ -1,5 +1,10 @@
 # Rustdoc Types
 
+[Docs](https://doc.rust-lang.org/nightly/nightly-rustc/rustdoc_json_types/index.html)
+
+This is an export of [`rustdoc-json-types`](https://github.com/rust-lang/rust/blob/master/src/rustdoc-json-types/lib.rs)
+
+
 ## License
 
 Licensed under either of
