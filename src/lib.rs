@@ -127,6 +127,7 @@ pub enum GenericArg {
     Lifetime(String),
     Type(Type),
     Const(Constant),
+    Infer,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq)]
@@ -322,7 +323,7 @@ pub struct GenericParamDef {
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub enum GenericParamDefKind {
-    Lifetime,
+    Lifetime { outlives: Vec<String> },
     Type { bounds: Vec<GenericBound>, default: Option<Type> },
     Const { ty: Type, default: Option<String> },
 }
