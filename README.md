@@ -4,6 +4,16 @@
 
 This is an export of [`rustdoc-json-types`](https://github.com/rust-lang/rust/blob/master/src/rustdoc-json-types/lib.rs)
 
+## Release Procedure
+
+1. Run `./update.sh` to pull code from upstream
+2. Run `cargo test`
+3. Update `version` field in `Cargo.toml`
+4. `git add` and `git commit` changed files
+5. `git tag vMAJOR.MINOR.PATCH`
+6. `git push --tags`
+7. `git push`
+7. `cargo publish`
 
 ## License
 
