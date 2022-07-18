@@ -1,8 +1,22 @@
 #!/bin/bash
+set -eou pipefail
+
+sd() {
+	sed -E "s/$1/$2/g"
+}
+col2() {
+	awk '{print $2}'
+}
+col6() {
+	awk '{print $6}'
+}
+grepor() {
+	grep $1 || true
+}
 
 for version_tag in $(git tag --sort=-version:refname); do
-	date=$(git show -s $version_tag --format=%ci | sd "[0-9]{2}:[0-9]{2}:[0-9]{2} \\+[0-9]{4}" "")
-	format_version=$(git show $version_tag:src/lib.rs | grep FORMAT_VERSION | col6 | sd ";" "")
+	date=$(git show -s $version_tag --format=%ci | sd "[0-9]{2}:[0-9]{2}:[0-9]{2} \+[0-9]{4}" "")
+	format_version=$(git show $version_tag:src/lib.rs | grepor FORMAT_VERSION | col6 | sd ";" "")
 
 	if [[ $version_tag == "v0.1.0" ]]; then
 		prev_tag=""
