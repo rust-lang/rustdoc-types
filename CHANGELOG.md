@@ -1,3 +1,9 @@
+<a name="v0.13.1"></a>
+# [v0.13.1](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.13.1) - 2022-08-10 
+- Format Version: 17
+- Upstream Commit: [`0dc39c7bd9795927b903c8c24e89a00788ce3e33`](https://github.com/rust-lang/rust/commit/0dc39c7bd9795927b903c8c24e89a00788ce3e33)
+- Diff: [v0.13.1...v0.13.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.13.0...v0.13.1)
+
 <a name="v0.13.0"></a>
 # [v0.13.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.13.0) - 2022-08-09 
 - Format Version: 17
