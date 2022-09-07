@@ -1,3 +1,9 @@
+<a name="v0.16.0"></a>
+# [v0.16.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.16.0) - 2022-09-07 
+- Format Version: 20
+- Upstream Commit: [`065e0b9c9cf3d03f286c5d0b98fbae7185e41b75`](https://github.com/rust-lang/rust/commit/065e0b9c9cf3d03f286c5d0b98fbae7185e41b75)
+- Diff: [v0.16.0...v0.15.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.15.0...v0.16.0)
+
 <a name="v0.15.0"></a>
 # [v0.15.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.15.0) - 2022-09-05 
 - Format Version: 19
