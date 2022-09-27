@@ -9,7 +9,7 @@ use std::path::PathBuf;
 use serde::{Deserialize, Serialize};
 
 /// rustdoc format-version.
-pub const FORMAT_VERSION: u32 = 21;
+pub const FORMAT_VERSION: u32 = 22;
 
 /// A `Crate` is the root of the emitted JSON blob. It contains all type/documentation information
 /// about the language items in the local crate, as well as info about external items to allow
@@ -254,7 +254,7 @@ pub enum ItemEnum {
     Macro(String),
     ProcMacro(ProcMacro),
 
-    PrimitiveType(String),
+    Primitive(Primitive),
 
     AssocConst {
         #[serde(rename = "type")]
@@ -542,12 +542,12 @@ pub enum Term {
 #[serde(rename_all = "snake_case")]
 #[serde(tag = "kind", content = "inner")]
 pub enum Type {
-    /// Structs, enums, and traits
+    /// Structs, enums, and unions
     ResolvedPath(Path),
     DynTrait(DynTrait),
     /// Parameterized types
     Generic(String),
-    /// Fixed-size numeric types (plus int/usize/float), char, arrays, slices, and tuples
+    /// Built in numberic (i*, u*, f*) types, bool, and char
     Primitive(String),
     /// `extern "ABI" fn`
     FunctionPointer(Box<FunctionPointer>),
@@ -707,6 +707,12 @@ pub struct Static {
     pub type_: Type,
     pub mutable: bool,
     pub expr: String,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub struct Primitive {
+    pub name: String,
+    pub impls: Vec<Id>,
 }
 
 #[cfg(test)]
