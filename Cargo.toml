@@ -1,6 +1,6 @@
 [package]
 name = "rustdoc-types"
-version = "0.18.0"
+version = "0.19.0"
 authors = ["Nixon Enraght-Moony <nixon.emoony@gmail.com>", "The Rust Project Developers"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
