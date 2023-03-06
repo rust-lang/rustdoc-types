@@ -4,9 +4,8 @@
 //! struct is the root of the JSON blob and all other items are contained within.
 
 use std::collections::HashMap;
-use std::path::PathBuf;
-
 use serde::{Deserialize, Serialize};
+use std::path::PathBuf;
 
 /// rustdoc format-version.
 pub const FORMAT_VERSION: u32 = 24;
@@ -54,8 +53,8 @@ pub struct ItemSummary {
     ///
     /// Note that items can appear in multiple paths, and the one chosen is implementation
     /// defined. Currently, this is the full path to where the item was defined. Eg
-    /// [`String`] is currently `["alloc", "string", "String"]` and [`HashMap`] is
-    /// `["std", "collections", "hash", "map", "HashMap"]`, but this is subject to change.
+    /// [`String`] is currently `["alloc", "string", "String"]` and [`HashMap`][`std::collections::HashMap`]
+    /// is `["std", "collections", "hash", "map", "HashMap"]`, but this is subject to change.
     pub path: Vec<String>,
     /// Whether this item is a struct, trait, macro, etc.
     pub kind: ItemKind,

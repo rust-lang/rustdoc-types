@@ -8,7 +8,7 @@ user="rust-lang"
 repo="rust"
 branch="master"
 
-curl -# https://raw.githubusercontent.com/${user}/${repo}/${branch}/src/rustdoc-json-types/lib.rs | sed 's/rustc_data_structures::fx::/std::collections::/g' | sed 's/FxHashMap/HashMap/g' > src/lib.rs
+curl -# https://raw.githubusercontent.com/${user}/${repo}/${branch}/src/rustdoc-json-types/lib.rs | sed 's/rustc_hash::/std::collections::/g' | sed 's/FxHashMap/HashMap/g' > src/lib.rs
 
 curl -# https://raw.githubusercontent.com/${user}/${repo}/${branch}/src/rustdoc-json-types/tests.rs > src/tests.rs
 
