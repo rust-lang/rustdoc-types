@@ -3,7 +3,14 @@
 //! These types are the public API exposed through the `--output-format json` flag. The [`Crate`]
 //! struct is the root of the JSON blob and all other items are contained within.
 
+#![cfg_attr(feature = "rustc_hash", feature(rustc_private))]
+#[cfg(feature = "rustc_hash")]
+extern crate rustc_hash;
+#[cfg(feature = "rustc_hash")]
+use rustc_hash::FxHashMap as HashMap;
+#[cfg(not(feature = "rustc_hash"))]
 use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 

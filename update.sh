@@ -4,11 +4,11 @@ pyjq() {
     python3 -c "import json, sys; print(json.load(sys.stdin)${1})"
 }
 
-user="rust-lang"
+user="aDotInTheVoid"
 repo="rust"
-branch="master"
+branch="rdj-hashmap"
 
-curl -# https://raw.githubusercontent.com/${user}/${repo}/${branch}/src/rustdoc-json-types/lib.rs | sed 's/rustc_hash::/std::collections::/g' | sed 's/FxHashMap/HashMap/g' > src/lib.rs
+curl -# https://raw.githubusercontent.com/${user}/${repo}/${branch}/src/rustdoc-json-types/lib.rs > src/lib.rs
 
 curl -# https://raw.githubusercontent.com/${user}/${repo}/${branch}/src/rustdoc-json-types/tests.rs > src/tests.rs
 
