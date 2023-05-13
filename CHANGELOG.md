@@ -1,3 +1,9 @@
+<a name="v0.21.0"></a>
+# [v0.21.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.21.0) - 2023-05-13 
+- Format Version: 25
+- Upstream Commit: [`61e1eda6db042413cf1794407fd10b7edc90059d`](https://github.com/rust-lang/rust/commit/61e1eda6db042413cf1794407fd10b7edc90059d)
+- Diff: [v0.21.0...v0.20.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.20.0...v0.21.0)
+
 <a name="v0.20.0"></a>
 # [v0.20.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.20.0) - 2023-01-03 
 - Format Version: 24
