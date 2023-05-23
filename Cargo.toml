@@ -1,7 +1,6 @@
 [package]
 name = "rustdoc-types"
-version = "0.21.0"
-authors = ["Nixon Enraght-Moony <nixon.emoony@gmail.com>", "The Rust Project Developers"]
+version = "0.22.0"
 edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Types for rustdoc's json output"
@@ -12,4 +11,5 @@ repository = "https://github.com/aDotInTheVoid/rustdoc-types/"
 serde = {version="1", features=["derive"]}
 
 [dev-dependencies]
+bincode = "1.3.3"
 serde_json = "1.0"
