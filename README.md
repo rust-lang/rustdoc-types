@@ -9,15 +9,7 @@ This is an export of [`rustdoc-json-types`](https://github.com/rust-lang/rust/bl
 1. Run `./update.sh` to pull code from upstream
 2. Run `cargo test`
 3. Run `./clgen.sh <old_version> <new_version>`
-4. Edit the `TODO` section in `CHANGELOG.md` to include what was done in this release.
-5. `git add .`
-6. `git commit -m v<new_version>`
-7. `cargo publish`
-8. `git tag v<new_version>`
-9. `git push`
-10. `git push --tags`
-
-
+4. Follow instructions to commit and push.
 
 ## License
 

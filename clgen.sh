@@ -38,18 +38,31 @@ format_version=$(cat src/lib.rs | grepor FORMAT_VERSION | col6 | sd ";" "")
 rustc_commit=$(cat COMMIT.txt)
 
 # We do a shuffling dance to append the new version to the top of the changelog
+new_tag="v$new_version"
+old_tag="v$old_version"
+
 cat<<EOF > tmp
-<a name="$new_version"></a>"
-# [$new_version](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/$new_version) - $date" 
+<a name="$new_tag"></a>"
+# [$new_tag](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/$new_tag) - $date" 
 
 TODO: Changelog.
 
 - Format Version: $format_version
 - Upstream Commit: [\`$rustc_commit\`](https://github.com/rust-lang/rust/commit/$rustc_commit)"
-- Diff: [$new_version...$new_version](https://github.com/aDotInTheVoid/rustdoc-types/compare/$old_version...$new_version)"
+- Diff: [$old_tag...$new_tag](https://github.com/aDotInTheVoid/rustdoc-types/compare/$old_tag...$new_tag)"
+
 EOF
 
 cat tmp CHANGELOG.md > tmp2
 mv tmp2 CHANGELOG.md
 rm tmp
 
+
+echo "First, edit the TODO in CHANGELOG.md"
+echo "Then, check the diff"
+echo "Finaly Run:"
+echo "git add Cargo.toml CHANGELOG.md COMMIT.txt src/"
+echo "git commit -m $new_version"
+echo "git tag $new_tag"
+echo "git push && git push --tags"
+echo "cargo publish"
