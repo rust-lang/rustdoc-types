@@ -44,7 +44,7 @@ cat<<EOF > tmp
 
 TODO: Changelog.
 
-- Format Version: $format_version"
+- Format Version: $format_version
 - Upstream Commit: [\`$rustc_commit\`](https://github.com/rust-lang/rust/commit/$rustc_commit)"
 - Diff: [$new_version...$new_version](https://github.com/aDotInTheVoid/rustdoc-types/compare/$old_version...$new_version)"
 EOF
