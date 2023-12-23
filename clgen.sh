@@ -14,28 +14,42 @@ grepor() {
 	grep $1 || true
 }
 
-for version_tag in $(git tag --sort=-version:refname); do
-	date=$(git show -s $version_tag --format=%ci | sd "[0-9]{2}:[0-9]{2}:[0-9]{2} \+[0-9]{4}" "")
-	format_version=$(git show $version_tag:src/lib.rs | grepor FORMAT_VERSION | col6 | sd ";" "")
+# Check we have two arguments, and assign them to variables
 
-	if [[ $version_tag == "v0.1.0" ]]; then
-		prev_tag=""
-		rustc_commit=7dc1e852d43cb8c9e77dc1e53014f0eb85d2ebfb
-	else
-		prev_tag=$(git tag --sort=-version:refname | grep -A 1 $version_tag | tail -n 1)
-		rustc_commit=$(git show $version_tag:COMMIT.txt)
-	fi 
+if [[ $# -ne 2 ]]; then
+	echo "Usage: $0 <old_version> <new_version>"
+	exit 1
+fi
 
-	# Handle pre https://github.com/rust-lang/rust/pull/89906
-	if [[ -z $format_version ]]; then
-		format_version=$(curl -L# https://raw.githubusercontent.com/rust-lang/rust/$rustc_commit/src/librustdoc/json/mod.rs | grep format_version | col2 | sd "," "")
-	fi
+old_version=$1
+new_version=$2
 
-	echo "<a name=\"$version_tag\"></a>"
-	echo "# [$version_tag](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/$version_tag) - $date" 
-	echo "- Format Version: $format_version"
-	echo "- Upstream Commit: [\`$rustc_commit\`](https://github.com/rust-lang/rust/commit/$rustc_commit)"
-	echo "- Diff: [$version_tag...$prev_tag](https://github.com/aDotInTheVoid/rustdoc-types/compare/$prev_tag...$version_tag)"
+# Update the version in Cargo.toml
+cat Cargo.toml | sd "version = \"$old_version\"" "version = \"$new_version\"" > tmp
+# Error if the version is not updated
+if [[ $(cat tmp | grep $new_version | wc -l) -ne 1 ]]; then
+	echo "Error: Version not updated in Cargo.toml"
+	exit 1
+fi
+mv tmp Cargo.toml
 
-	echo ""
-done
+date=$(date --utc --rfc-3339=date)
+format_version=$(cat src/lib.rs | grepor FORMAT_VERSION | col6 | sd ";" "")
+rustc_commit=$(cat COMMIT.txt)
+
+# We do a shuffling dance to append the new version to the top of the changelog
+cat<<EOF > tmp
+<a name="$new_version"></a>"
+# [$new_version](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/$new_version) - $date" 
+
+TODO: Changelog.
+
+- Format Version: $format_version"
+- Upstream Commit: [\`$rustc_commit\`](https://github.com/rust-lang/rust/commit/$rustc_commit)"
+- Diff: [$new_version...$new_version](https://github.com/aDotInTheVoid/rustdoc-types/compare/$old_version...$new_version)"
+EOF
+
+cat tmp CHANGELOG.md > tmp2
+mv tmp2 CHANGELOG.md
+rm tmp
+
