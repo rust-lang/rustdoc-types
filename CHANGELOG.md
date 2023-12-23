@@ -1,3 +1,15 @@
+<a name="v0.24.0"></a>
+# [v0.24.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.24.0) - 2023-12-23
+
+**Breaking Change**: `Trait` now includes the `is_object_safe` field. ([rust#119246](https://github.com/rust-lang/rust/pull/119246))
+
+**Internal Improvement**: The scripts to generate the changelog have been revamped to allow
+hand-written information in the changelog, and to make the release process easier.
+
+- Format Version: 28
+- Upstream Commit: [`c29f763153ac89e7930c6d50f5ab4656318b30d4`](https://github.com/rust-lang/rust/commit/c29f763153ac89e7930c6d50f5ab4656318b30d4)
+- Diff: [v0.23.0...v0.24.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.23.0...v0.24.0)
+
 <a name="v0.23.0"></a>
 # [v0.23.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.23.0) - 2023-08-23 
 - Format Version: 27
