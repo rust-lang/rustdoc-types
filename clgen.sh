@@ -42,14 +42,14 @@ new_tag="v$new_version"
 old_tag="v$old_version"
 
 cat<<EOF > tmp
-<a name="$new_tag"></a>"
-# [$new_tag](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/$new_tag) - $date" 
+<a name="$new_tag"></a>
+# [$new_tag](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/$new_tag) - $date
 
 TODO: Changelog.
 
 - Format Version: $format_version
-- Upstream Commit: [\`$rustc_commit\`](https://github.com/rust-lang/rust/commit/$rustc_commit)"
-- Diff: [$old_tag...$new_tag](https://github.com/aDotInTheVoid/rustdoc-types/compare/$old_tag...$new_tag)"
+- Upstream Commit: [\`$rustc_commit\`](https://github.com/rust-lang/rust/commit/$rustc_commit)
+- Diff: [$old_tag...$new_tag](https://github.com/aDotInTheVoid/rustdoc-types/compare/$old_tag...$new_tag)
 
 EOF
 
