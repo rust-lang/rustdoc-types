@@ -11,25 +11,49 @@ hand-written information in the changelog, and to make the release process easie
 - Diff: [v0.23.0...v0.24.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.23.0...v0.24.0)
 
 <a name="v0.23.0"></a>
-# [v0.23.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.23.0) - 2023-08-23 
+# [v0.23.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.23.0) - 2023-08-23
+
+**Breaking Change**: `Typedef` has been renamed to `TypeAlias`, as this is what
+people (and the reference) generaly call these items. ([rust#115078](https://github.com/rust-lang/rust/pull/115078))
+
 - Format Version: 27
 - Upstream Commit: [`c90a5b2019e5a862c8fb5ae39dcf6ad5f4c65b09`](https://github.com/rust-lang/rust/commit/c90a5b2019e5a862c8fb5ae39dcf6ad5f4c65b09)
 - Diff: [v0.23.0...v0.22.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.22.0...v0.23.0)
 
 <a name="v0.22.0"></a>
 # [v0.22.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.22.0) - 2023-05-23 
+
+**Breaking Change**: All enums now use external tagging. No change is required
+to move to this version (all all the types are the same), but it won't be able
+to read JSON files from older rustdoc versions, as enums will be represented
+differently. This change allows using non-self-describing serde serializers
+(like bincode), although rustdoc itself won't generate these.
+([rust#111427](https://github.com/rust-lang/rust/pull/111427))
+
 - Format Version: 26
 - Upstream Commit: [`a5e51013753ca75c239403b47af1e605f5af2a64`](https://github.com/rust-lang/rust/commit/a5e51013753ca75c239403b47af1e605f5af2a64)
 - Diff: [v0.22.0...v0.21.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.21.0...v0.22.0)
 
 <a name="v0.21.0"></a>
 # [v0.21.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.21.0) - 2023-05-13 
+
+**Breaking Change**: `Type::QualifiedPath.trait_` is now an `Option<Path>`
+(instead of path). This is to support the (currently unstable) [inherent
+associated types](https://github.com/rust-lang/rust/issues/8995) feature.
+([rust#109410](https://github.com/rust-lang/rust/pull/109410))
+
 - Format Version: 25
 - Upstream Commit: [`61e1eda6db042413cf1794407fd10b7edc90059d`](https://github.com/rust-lang/rust/commit/61e1eda6db042413cf1794407fd10b7edc90059d)
 - Diff: [v0.21.0...v0.20.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.20.0...v0.21.0)
 
 <a name="v0.20.0"></a>
 # [v0.20.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.20.0) - 2023-01-03 
+
+**Breaking Change**: `Variant` has been split into `Variant` and `VariantKind`,
+so the `Discriminant` can always be reported. Previously, it could only be
+reported for a plain enum variant (i.e. one with no fields or braces).
+([rust#106354](https://github.com/rust-lang/rust/pull/106354))
+
 - Format Version: 24
 - Upstream Commit: [`cca5d219e6801ebc2a62b455a12c657098a8af2d`](https://github.com/rust-lang/rust/commit/cca5d219e6801ebc2a62b455a12c657098a8af2d)
 - Diff: [v0.20.0...v0.19.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.19.0...v0.20.0)
