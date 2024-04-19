@@ -1,3 +1,12 @@
+<a name="v0.25.0"></a>
+# [v0.25.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.25.0) - 2024-04-19
+
+**Breaking Change**: Add `Type::Pat` for unstable pattern types. ([rust#120131](https://github.com/rust-lang/rust/pull/120131/))
+
+- Format Version: 29
+- Upstream Commit: [`18ff131c4e06d6e1ebfc19092fe1d6c3535eb78b`](https://github.com/rust-lang/rust/commit/18ff131c4e06d6e1ebfc19092fe1d6c3535eb78b)
+- Diff: [v0.24.0...v0.25.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.24.0...v0.25.0)
+
 <a name="v0.24.0"></a>
 # [v0.24.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.24.0) - 2023-12-23
 
