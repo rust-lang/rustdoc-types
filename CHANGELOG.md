@@ -1,3 +1,13 @@
+<a name="v0.26.0"></a>
+# [v0.26.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.26.0) - 2024-06-06
+
+**Breaking Change**: Removed `type_` field from `Constant`,
+added it to `ItemEnum::Constant`. ([rrust#125958](https://github.com/rust-lang/rust/pull/125958))
+
+- Format Version: 30
+- Upstream Commit: [`432c11feb6ddfffe6d1d111624ac86386b2fe751`](https://github.com/rust-lang/rust/commit/432c11feb6ddfffe6d1d111624ac86386b2fe751)
+- Diff: [v0.25.0...v0.26.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.25.0...v0.26.0)
+
 <a name="v0.25.0"></a>
 # [v0.25.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.25.0) - 2024-04-19
 
