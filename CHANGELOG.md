@@ -1,3 +1,17 @@
+<a name="v0.27.0"></a>
+# [v0.27.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.27.0) - 2024-07-04
+
+**Breaking Change**: `WherePredicate::RegionPredicate` has been renamed to
+`LifetimePredicate`, to avoid compiler-internal terminology. The `bounds` field
+has been renamed to `outlives`, and changed from `Vec<GenericBound>` to
+`Vec<String>`, becuase the only bound that lifetimes can have is that they
+outlife other lifetimes
+([rust#127289](https://github.com/rust-lang/rust/pull/127289)).
+
+- Format Version: 31
+- Upstream Commit: [`7e8aac553e756b0eb03fe98e1a65ffc47836ec51`](https://github.com/rust-lang/rust/commit/7e8aac553e756b0eb03fe98e1a65ffc47836ec51)
+- Diff: [v0.26.0...v0.27.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.26.0...v0.27.0)
+
 <a name="v0.26.0"></a>
 # [v0.26.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.26.0) - 2024-06-06
 
