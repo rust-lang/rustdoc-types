@@ -1,3 +1,12 @@
+<a name="v0.28.0"></a>
+# [v0.28.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.28.0) - 2024-07-18
+
+**Breaking Change**: Add `GenericBound::Use` for the (currently unstable) [`precise_capturing`](https://github.com/rust-lang/rust/issues/123432) feature ([rust#127632]( https://github.com/rust-lang/rust/pull/127632)).
+
+- Format Version: 32
+- Upstream Commit: [`bd135e487f904e757f6c3d2ebcc2d216ac4d9aaf`](https://github.com/rust-lang/rust/commit/bd135e487f904e757f6c3d2ebcc2d216ac4d9aaf)
+- Diff: [v0.27.0...v0.28.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.27.0...v0.28.0)
+
 <a name="v0.27.0"></a>
 # [v0.27.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.27.0) - 2024-07-04
 
