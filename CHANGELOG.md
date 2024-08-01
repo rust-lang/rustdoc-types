@@ -1,3 +1,12 @@
+<a name="v0.29.0"></a>
+# [v0.29.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.29.0) - 2024-08-01
+
+**Breaking Change**: Removed `OpaqueTy`, `ItemKind::OpaqueTy` and `ItemEnum::OpaqueTy`. These were only generated with rarely used nightly features, so almost all documents will be uneffected ([rust#127276](https://github.com/rust-lang/rust/pull/127276)).
+
+- Format Version: 33
+- Upstream Commit: [`73ac5e0c6e8e0e35229444caf5461c6c079122b4`](https://github.com/rust-lang/rust/commit/73ac5e0c6e8e0e35229444caf5461c6c079122b4)
+- Diff: [v0.28.1...v0.29.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.28.1...v0.29.0)
+
 <a name="v0.28.1"></a>
 # [v0.28.1](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.28.1) - 2024-08-01
 
