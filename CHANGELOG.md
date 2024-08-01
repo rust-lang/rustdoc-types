@@ -1,3 +1,12 @@
+<a name="v0.28.1"></a>
+# [v0.28.1](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.28.1) - 2024-08-01
+
+**Documentation Improvements**: The libray is now (almost) entirely documented ([rust#127290](https://github.com/rust-lang/rust/pull/127290))!
+
+- Format Version: 32
+- Upstream Commit: [`47b76d8d939be6085e9b1f6fc1a4b959346754a6`](https://github.com/rust-lang/rust/commit/47b76d8d939be6085e9b1f6fc1a4b959346754a6)
+- Diff: [v0.28.0...v0.28.1](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.28.0...v0.28.1)
+
 <a name="v0.28.0"></a>
 # [v0.28.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.28.0) - 2024-07-18
 
