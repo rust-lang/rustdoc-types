@@ -2,7 +2,7 @@
 
 [Docs](https://docs.rs/rustdoc-types/latest/rustdoc_types/)
 
-This crate contains the type definiions for rustdoc's currently-unstable
+This crate contains the type definitions for rustdoc's currently-unstable
 `--output-format=json` flag. They can be deserialized with `serde-json` from
 the output of `cargo +nightly rustdoc -- --output-format json -Z unstable-options`:
 
