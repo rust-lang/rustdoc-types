@@ -1,5 +1,17 @@
+<a name="v0.29.1"></a>
+# [v0.29.1](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.29.1) - 2024-08-13
+
+**Documentation Improvements**: Typo fixes ([rust#128903](https://github.com/rust-lang/rust/pull/128903), [#29](https://github.com/aDotInTheVoid/rustdoc-types/pull/29)).
+
+- Format Version: 33
+- Upstream Commit: [`b735547025dad853829a7dbf6b6697090e3f657c`](https://github.com/rust-lang/rust/commit/b735547025dad853829a7dbf6b6697090e3f657c)
+- Diff: [v0.29.0...v0.29.1](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.29.0...v0.29.1)
+
 <a name="v0.29.0"></a>
 # [v0.29.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.29.0) - 2024-08-01
+
+> [!NOTE]  
+> Due to a mistake, this version was never published to crates.io. Users can use `v0.29.1` instead.
 
 **Breaking Change**: Removed `OpaqueTy`, `ItemKind::OpaqueTy` and `ItemEnum::OpaqueTy`. These were only generated with rarely used nightly features, so almost all documents will be uneffected ([rust#127276](https://github.com/rust-lang/rust/pull/127276)).
 
@@ -10,7 +22,7 @@
 <a name="v0.28.1"></a>
 # [v0.28.1](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.28.1) - 2024-08-01
 
-**Documentation Improvements**: The libray is now (almost) entirely documented ([rust#127290](https://github.com/rust-lang/rust/pull/127290))!
+**Documentation Improvements**: The library is now (almost) entirely documented ([rust#127290](https://github.com/rust-lang/rust/pull/127290))!
 
 - Format Version: 32
 - Upstream Commit: [`47b76d8d939be6085e9b1f6fc1a4b959346754a6`](https://github.com/rust-lang/rust/commit/47b76d8d939be6085e9b1f6fc1a4b959346754a6)
@@ -31,7 +43,7 @@
 **Breaking Change**: `WherePredicate::RegionPredicate` has been renamed to
 `LifetimePredicate`, to avoid compiler-internal terminology. The `bounds` field
 has been renamed to `outlives`, and changed from `Vec<GenericBound>` to
-`Vec<String>`, becuase the only bound that lifetimes can have is that they
+`Vec<String>`, because the only bound that lifetimes can have is that they
 outlife other lifetimes
 ([rust#127289](https://github.com/rust-lang/rust/pull/127289)).
 
@@ -75,7 +87,7 @@ hand-written information in the changelog, and to make the release process easie
 # [v0.23.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.23.0) - 2023-08-23
 
 **Breaking Change**: `Typedef` has been renamed to `TypeAlias`, as this is what
-people (and the reference) generaly call these items. ([rust#115078](https://github.com/rust-lang/rust/pull/115078))
+people (and the reference) generally call these items. ([rust#115078](https://github.com/rust-lang/rust/pull/115078))
 
 - Format Version: 27
 - Upstream Commit: [`c90a5b2019e5a862c8fb5ae39dcf6ad5f4c65b09`](https://github.com/rust-lang/rust/commit/c90a5b2019e5a862c8fb5ae39dcf6ad5f4c65b09)
