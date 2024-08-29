@@ -285,6 +285,11 @@ pub enum TypeBindingKind {
     Constraint(Vec<GenericBound>),
 }
 
+#[doc(hidden)]
+#[repr(transparent)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub struct IdType<T: ?Sized>(T);
+
 /// An opaque identifier for an item.
 ///
 /// It can be used to lookup in [`Crate::index`] or [`Crate::paths`] to resolve it
@@ -296,11 +301,28 @@ pub enum TypeBindingKind {
 /// Rustdoc makes no guarantees about the inner value of Id's. Applications
 /// should treat them as opaque keys to lookup items, and avoid attempting
 /// to parse them, or otherwise depend on any implementation details.
-#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
-// FIXME(aDotInTheVoid): Consider making this non-public in rustdoc-types.
-pub struct Id(pub String);
+pub type Id = IdType<Box<str>>;
 
-/// The fundamental kind of an item. Unlike [`ItemEnum`], this does not carry any aditional info.
+/// A reference to an [`Id`]
+pub type IdRef = IdType<str>;
+
+impl std::ops::Deref for Id {
+    type Target = IdRef;
+
+    fn deref(&self) -> &Self::Target {
+        let inner: &str = self.0.as_ref();
+        // Safety: &IdRef has the same layout and lifetime as &str due to the repr(transparent)
+        unsafe { std::mem::transmute(inner) }
+    }
+}
+
+impl std::borrow::Borrow<IdRef> for Id {
+    fn borrow(&self) -> &IdRef {
+        self
+    }
+}
+
+/// The fundamental kind of an item. Unlike [`ItemEnum`], this does not carry any additional info.
 ///
 /// Part of [`ItemSummary`].
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
