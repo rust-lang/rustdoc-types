@@ -33,7 +33,7 @@ if [[ $(cat tmp | grep $new_version | wc -l) -ne 1 ]]; then
 fi
 mv tmp Cargo.toml
 
-date=$(date --utc --rfc-3339=date)
+date=$(date -u +'%Y-%m-%d')
 format_version=$(cat src/lib.rs | grepor FORMAT_VERSION | col6 | sd ";" "")
 rustc_commit=$(cat COMMIT.txt)
 
