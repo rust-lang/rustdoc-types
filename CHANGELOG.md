@@ -1,3 +1,34 @@
+<a name="v0.30.0"></a>
+# [v0.30.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.30.0) - 2024-09-13
+
+**Breaking Change**: Many structs and fields have been renamed ([rust#128667](https://github.com/rust-lang/rust/pull/128667)):
+- `Import` is now `Use`, to better reflect the syntax and [the reference](https://doc.rust-lang.org/stable/reference/items/use-declarations.html).
+- `TypeBinding` is now `AssocItemConstraint`, to reflect that is can also work on associated constants, and that it can either require the associated item to equal a term, or satisfy bounds.
+    - Similarly, `TypeBindingKind` is now `AssocItemConstraintKind`
+    - `bindings` has been renamed to `constraints` on `GenericArgs::AngleBracketed`
+- `ForeignType` has been renamed to `ExternType`, because [that's what the feature is called](https://github.com/rust-lang/rust/issues/43467). "Foreign" refers to types that arn't from the current crate, whereas Extern Types are entirely opaque to the type system (and may be in the current crate).
+- `ItemEnum::AssocConst` and `ItemEnum::AssocType`'s `default` field has been renamed to `value`, to clairify that they can appear in both an `impl` and `trait` item.
+- `Header` is now `FunctionHeader`, to be clearer what it is.
+- `FnDecl` is now `FunctionSignature`, as it's also used for `FunctionPointer` types (and not just function items).
+    - `decl` field is now `sig`
+- Boolean fields are now `is_` or `has_` prefixed for clairity:
+    - `fields_stripped` is now `has_fields_stripped`
+    - `variants_stripped` is now `has_stripped_variants`
+    - `const_` is now `is_const`
+    - `async_` is now `is_async`
+    - `unsafe_` is now `is_async`
+    - `synthetic` is now `is_synthetic`
+    - `mutable` is now `is_mutable`
+    - `c_variadic` is now `is_c_variadic`
+    - `negative` is now `is_negative`
+    - `glob` is now `is_glob`
+
+<br/>
+
+- Format Version: 34
+- Upstream Commit: [`f2696ab4d3095bb6ad6197e55855ebdf00f50b80`](https://github.com/rust-lang/rust/commit/f2696ab4d3095bb6ad6197e55855ebdf00f50b80)
+- Diff: [v0.29.1...v0.30.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.29.1...v0.30.0)
+
 <a name="v0.29.1"></a>
 # [v0.29.1](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.29.1) - 2024-08-13
 
