@@ -19,8 +19,8 @@ This repo is a reexport of
 [`rustdoc-json-types`](https://github.com/rust-lang/rust/blob/master/src/rustdoc-json-types/lib.rs)
 from the rust repo. Any change to the contents of [`src/`](src/), should be sent
 to [`rust-lang/rust`](https://github.com/rust-lang/rust/), via their [normal
-contibution
-procudures](https://rustc-dev-guide.rust-lang.org/contributing.html). Once
+contribution
+procedures](https://rustc-dev-guide.rust-lang.org/contributing.html). Once
 reviewed and merged there, the change will be pulled to this repo and published
 to crates.io.
 
