@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 /// This integer is incremented with every breaking change to the API,
 /// and is returned along with the JSON blob as [`Crate::format_version`].
 /// Consuming code should assert that this value matches the format version(s) that it supports.
-pub const FORMAT_VERSION: u32 = 34;
+pub const FORMAT_VERSION: u32 = 35;
 
 /// The root of the emitted JSON blob.
 ///
@@ -194,7 +194,8 @@ pub enum GenericArgs {
         /// ```
         args: Vec<GenericArg>,
         /// Associated type or constant bindings (e.g. `Item=i32` or `Item: Clone`) for this type.
-        constraints: Vec<AssocItemConstraint>,
+        #[serde(alias = "constraints")]
+        bindings: Vec<AssocItemConstraint>,
     },
     /// `Fn(A, B) -> C`
     Parenthesized {
@@ -485,6 +486,18 @@ pub enum ItemEnum {
         #[serde(rename = "type")]
         type_: Option<Type>,
     },
+    /// An imported type.
+    Import {
+        /// The full path being imported (e.g. `super::some_mod::other_mod::Struct`).
+        source: String,
+        /// The name of the imported item (may be different from the last segment of `source` due to
+        /// import renaming: `use source as name`).
+        name: String,
+        /// The ID of the item being imported.
+        id: Option<Id>,
+        /// Whether this import ends in a glob: `use source::*`.
+        glob: bool,
+    },
 }
 
 /// A module declaration, e.g. `mod foo;` or `mod foo {}`.
@@ -508,7 +521,8 @@ pub struct Union {
     /// The generic parameters and where clauses on this union.
     pub generics: Generics,
     /// Whether any fields have been removed from the result, due to being private or hidden.
-    pub has_stripped_fields: bool,
+    #[serde(alias = "has_stripped_fields")]
+    pub fields_stripped: bool,
     /// The list of fields in the union.
     ///
     /// All of the corresponding [`Item`]s are of kind [`ItemEnum::StructField`].
@@ -565,7 +579,8 @@ pub enum StructKind {
         /// All of the corresponding [`Item`]s are of kind [`ItemEnum::StructField`].
         fields: Vec<Id>,
         /// Whether any fields have been removed from the result, due to being private or hidden.
-        has_stripped_fields: bool,
+        #[serde(alias = "has_stripped_fields")]
+        fields_stripped: bool,
     },
 }
 
@@ -575,7 +590,8 @@ pub struct Enum {
     /// Information about the type parameters and `where` clauses of the enum.
     pub generics: Generics,
     /// Whether any variants have been removed from the result, due to being private or hidden.
-    pub has_stripped_variants: bool,
+    #[serde(alias = "has_stripped_variants")]
+    pub variants_stripped: bool,
     /// The list of variants in the enum.
     ///
     /// All of the corresponding [`Item`]s are of kind [`ItemEnum::Variant`]
@@ -632,7 +648,8 @@ pub enum VariantKind {
         /// All of the corresponding [`Item`]s are of kind [`ItemEnum::Variant`].
         fields: Vec<Id>,
         /// Whether any variants have been removed from the result, due to being private or hidden.
-        has_stripped_fields: bool,
+        #[serde(alias = "has_stripped_fields")]
+        fields_stripped: bool,
     },
 }
 
@@ -658,10 +675,13 @@ pub struct Discriminant {
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct FunctionHeader {
     /// Is this function marked as `const`?
+    #[serde(rename = "const", alias = "is_const")]
     pub is_const: bool,
     /// Is this function unsafe?
+    #[serde(rename = "unsafe", alias = "is_unsafe")]
     pub is_unsafe: bool,
     /// Is this function async?
+    #[serde(rename = "async", alias = "is_async")]
     pub is_async: bool,
     /// The ABI used by the function.
     pub abi: Abi,
@@ -705,7 +725,8 @@ pub enum Abi {
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct Function {
     /// Information about the function signature, or declaration.
-    pub sig: FunctionSignature,
+    #[serde(alias = "sig")]
+    pub decl: FunctionSignature,
     /// Information about the function’s type parameters and `where` clauses.
     pub generics: Generics,
     /// Information about core properties of the function, e.g. whether it's `const`, its ABI, etc.
@@ -792,7 +813,8 @@ pub enum GenericParamDefKind {
         /// In this example, the generic parameter named `impl Trait` (and which
         /// is bound by `Trait`) is synthetic, because it was not originally in
         /// the Rust source text.
-        is_synthetic: bool,
+        #[serde(alias = "is_synthetic")]
+        synthetic: bool,
     },
 
     /// Denotes a constant parameter.
@@ -971,7 +993,8 @@ pub enum Type {
     /// A raw pointer type, e.g. `*mut u32`, `*const u8`, etc.
     RawPointer {
         /// This is `true` for `*mut _` and `false` for `*const _`.
-        is_mutable: bool,
+        #[serde(alias = "is_mutable")]
+        mutable: bool,
         /// The type of the pointee.
         #[serde(rename = "type")]
         type_: Box<Type>,
@@ -981,7 +1004,8 @@ pub enum Type {
         /// The name of the lifetime of the reference, if provided.
         lifetime: Option<String>,
         /// This is `true` for `&mut i32` and `false` for `&i32`
-        is_mutable: bool,
+        #[serde(alias = "is_mutable")]
+        mutable: bool,
         /// The type of the pointee, e.g. the `i32` in `&'a mut i32`
         #[serde(rename = "type")]
         type_: Box<Type>,
@@ -1044,7 +1068,8 @@ pub struct Path {
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct FunctionPointer {
     /// The signature of the function.
-    pub sig: FunctionSignature,
+    #[serde(alias = "sig")]
+    pub decl: FunctionSignature,
     /// Used for Higher-Rank Trait Bounds (HRTBs)
     ///
     /// ```ignore (incomplete expression)
@@ -1071,7 +1096,8 @@ pub struct FunctionSignature {
     /// ```ignore (incomplete code)
     /// fn printf(fmt: &str, ...);
     /// ```
-    pub is_c_variadic: bool,
+    #[serde(alias = "is_c_variadic")]
+    pub c_variadic: bool,
 }
 
 /// A `trait` declaration.
@@ -1135,10 +1161,12 @@ pub struct Impl {
     /// The list of associated items contained in this impl block.
     pub items: Vec<Id>,
     /// Whether this is a negative impl (e.g. `!Sized` or `!Send`).
-    pub is_negative: bool,
+    #[serde(alias = "is_negative")]
+    pub negative: bool,
     /// Whether this is an impl that’s implied by the compiler
     /// (for autotraits, e.g. `Send` or `Sync`).
-    pub is_synthetic: bool,
+    #[serde(alias = "is_synthetic")]
+    pub synthetic: bool,
     // FIXME: document this
     pub blanket_impl: Option<Type>,
 }
@@ -1213,7 +1241,8 @@ pub struct Static {
     #[serde(rename = "type")]
     pub type_: Type,
     /// This is `true` for mutable statics, declared as `static mut X: T = f();`
-    pub is_mutable: bool,
+    #[serde(alias = "is_mutable")]
+    pub mutable: bool,
     /// The stringified expression for the initial value.
     ///
     /// It's not guaranteed that it'll match the actual source code for the initial value.
