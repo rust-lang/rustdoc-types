@@ -60,7 +60,7 @@ rm tmp
 
 echo "First, edit the TODO in CHANGELOG.md"
 echo "Then, check the diff"
-echo "Finaly Run:"
+echo "Finally, Run:"
 echo "git add Cargo.toml CHANGELOG.md COMMIT.txt src/"
 echo "git commit -m $new_tag"
 echo "git tag $new_tag"

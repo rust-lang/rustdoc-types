@@ -3,20 +3,20 @@
 
 **Breaking Change**: Many structs and fields have been renamed ([rust#128667](https://github.com/rust-lang/rust/pull/128667)):
 - `Import` is now `Use`, to better reflect the syntax and [the reference](https://doc.rust-lang.org/stable/reference/items/use-declarations.html).
-- `TypeBinding` is now `AssocItemConstraint`, to reflect that is can also work on associated constants, and that it can either require the associated item to equal a term, or satisfy bounds.
+- `TypeBinding` is now `AssocItemConstraint`, to reflect that it can also work on associated constants, and that it can either require the associated item to equal a term, or satisfy bounds.
     - Similarly, `TypeBindingKind` is now `AssocItemConstraintKind`
     - `bindings` has been renamed to `constraints` on `GenericArgs::AngleBracketed`
-- `ForeignType` has been renamed to `ExternType`, because [that's what the feature is called](https://github.com/rust-lang/rust/issues/43467). "Foreign" refers to types that arn't from the current crate, whereas Extern Types are entirely opaque to the type system (and may be in the current crate).
-- `ItemEnum::AssocConst` and `ItemEnum::AssocType`'s `default` field has been renamed to `value`, to clairify that they can appear in both an `impl` and `trait` item.
+- `ForeignType` has been renamed to `ExternType`, because [that's what the feature is called](https://github.com/rust-lang/rust/issues/43467). "Foreign" refers to types that aren't from the current crate, whereas Extern Types are entirely opaque to the type system (and may be in the current crate).
+- `ItemEnum::AssocConst` and `ItemEnum::AssocType`'s `default` field has been renamed to `value`, to clarify that they can appear in both an `impl` and `trait` item.
 - `Header` is now `FunctionHeader`, to be clearer what it is.
 - `FnDecl` is now `FunctionSignature`, as it's also used for `FunctionPointer` types (and not just function items).
     - `decl` field is now `sig`
-- Boolean fields are now `is_` or `has_` prefixed for clairity:
+- Boolean fields are now `is_` or `has_` prefixed for clarity:
     - `fields_stripped` is now `has_fields_stripped`
     - `variants_stripped` is now `has_stripped_variants`
     - `const_` is now `is_const`
     - `async_` is now `is_async`
-    - `unsafe_` is now `is_async`
+    - `unsafe_` is now `is_unsafe`
     - `synthetic` is now `is_synthetic`
     - `mutable` is now `is_mutable`
     - `c_variadic` is now `is_c_variadic`
@@ -44,7 +44,7 @@
 > [!NOTE]  
 > Due to a mistake, this version was never published to crates.io. Users can use `v0.29.1` instead.
 
-**Breaking Change**: Removed `OpaqueTy`, `ItemKind::OpaqueTy` and `ItemEnum::OpaqueTy`. These were only generated with rarely used nightly features, so almost all documents will be uneffected ([rust#127276](https://github.com/rust-lang/rust/pull/127276)).
+**Breaking Change**: Removed `OpaqueTy`, `ItemKind::OpaqueTy` and `ItemEnum::OpaqueTy`. These were only generated with rarely used nightly features, so almost all documents will be unaffected ([rust#127276](https://github.com/rust-lang/rust/pull/127276)).
 
 - Format Version: 33
 - Upstream Commit: [`73ac5e0c6e8e0e35229444caf5461c6c079122b4`](https://github.com/rust-lang/rust/commit/73ac5e0c6e8e0e35229444caf5461c6c079122b4)
