@@ -1,3 +1,14 @@
+<a name="v0.31.0"></a>
+# [v0.31.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.31.0) - 2024-10-13
+
+**Breaking Change**: The `Id` type now wraps a `u32` instead of a `String`. The should hopefully increase performance ([rust#130078](https://github.com/rust-lang/rust/pull/130078)).
+
+**Documentation Improvement**: Remove false claim from `ProcMacro::helpers` docs ([rust#130939](https://github.com/rust-lang/rust/pull/130939)).
+
+- Format Version: 35
+- Upstream Commit: [`05c0591321f9956c1f0df4785d3737f40cffb598`](https://github.com/rust-lang/rust/commit/05c0591321f9956c1f0df4785d3737f40cffb598)
+- Diff: [v0.30.0...v0.31.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.30.0...v0.31.0)
+
 <a name="v0.30.0"></a>
 # [v0.30.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.30.0) - 2024-09-13
 
