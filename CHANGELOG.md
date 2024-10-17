@@ -2,7 +2,7 @@
 # [v0.32.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.32.0) - 2024-10-17
 
 
-**Breaking Change**: Rename `Trait::is_object_same` to `is_dyn_compatible`. This is a part of a [language wide rename](https://github.com/rust-lang/rust/issues/130852) to [make the term explain its meaning](https://internals.rust-lang.org/t/object-safety-is-a-terrible-term/21025) ([rust#131595](https://github.com/rust-lang/rust/pull/131595)).
+**Breaking Change**: Rename `Trait::is_object_safe` to `is_dyn_compatible`. This is a part of a [language wide rename](https://github.com/rust-lang/rust/issues/130852) to [make the term explain its meaning](https://internals.rust-lang.org/t/object-safety-is-a-terrible-term/21025) ([rust#131595](https://github.com/rust-lang/rust/pull/131595)).
 
 - Format Version: 36
 - Upstream Commit: [`2e6f3bd1d32455e535de1d9ee154253c333aec73`](https://github.com/rust-lang/rust/commit/2e6f3bd1d32455e535de1d9ee154253c333aec73)
