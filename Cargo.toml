@@ -9,6 +9,16 @@ repository = "https://github.com/rust-lang/rustdoc-types"
 
 [dependencies]
 serde = {version="1", features=["derive"]}
+rustc-hash = {version="2", optional=true}
+
+[features]
+default = []
+
+# Switch the hashmaps used in rustdoc-types to the FxHashMap from rustc-hash.
+#
+# This might improve performace if your are reading the rustdoc JSON from large
+# crates like aws_sdk_ec2
+rustc-hash = ["dep:rustc-hash"]
 
 [dev-dependencies]
 bincode = "1.3.3"
