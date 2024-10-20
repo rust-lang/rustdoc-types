@@ -12,8 +12,13 @@ env:
 jobs:
   cargo-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        features:
+          - default
+          - rustc-hash
     steps:
     - uses: actions/checkout@v4
     - uses: dtolnay/rust-toolchain@stable
     - uses: Swatinem/rust-cache@v2
-    - run: cargo test
+    - run: cargo test --no-default-features --features '${{ matrix.features }}'
