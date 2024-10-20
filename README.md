@@ -13,7 +13,7 @@ let krate: rustdoc_types::Crate = serde_json::from_str(&json_string)?;
 println!("the index has {} items", krate.index.len());
 ```
 
-For performance sensitive crates we suggest turning on the `rustc-hash`
+For performance sensitive crates, consider turning on the `rustc-hash`
 feature. This switches all data structures from `std::collections::HashMap` to
 `rustc-hash::FxHashMap` which improves performance when reading big JSON files
 (like `aws_sdk_rs`'s).
@@ -21,7 +21,7 @@ feature. This switches all data structures from `std::collections::HashMap` to
 `cargo-semver-checks` benchmarked this change with `aws_sdk_ec2`'s JSON and
 [observed a -3% improvement to the runtime][csc benchmarks]. The performance
 here depends on how much time you spend querying the `HashMap`s, so as always,
-measure first c:
+measure first.
 
 [csc benchmarks]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc/topic/rustc-hash.20and.20performance.20of.20rustdoc-types/near/474855731
 
