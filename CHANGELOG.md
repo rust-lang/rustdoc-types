@@ -1,9 +1,20 @@
+<a name="v0.32.2"></a>
+# [v0.32.2](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.32.2) - 2024-10-23
+
+**Library Improvement**: `ItemKind`, `TraitBoundModifier`, and `MacroKind` all now implement `Copy` ([rust#131976](https://github.com/rust-lang/rust/pull/131976)).
+
+- Format Version: 36
+- Upstream Commit: [`4b658657da324253a201fc7baf70d106db5df7e0`](https://github.com/rust-lang/rust/commit/4b658657da324253a201fc7baf70d106db5df7e0)
+- Diff: [v0.32.1...v0.32.2](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.32.1...v0.32.2)
+
 <a name="v0.32.1"></a>
 # [v0.32.1](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.32.1) - 2024-10-20
 
 **New Feature**: The optional `rustc-hash` cargo feature has been added.
 This changes the hashing algorithm used to [a speedy non-cryptographic hashing algorith](https://github.com/rust-lang/rustc-hash) also used in rustc. 
-This has lead to [modest but appreciable](https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc/topic/rustc-hash.20and.20performance.20of.20rustdoc-types/near/474855731) performace gains for some consumers.
+This has lead to [modest but appreciable](https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc/topic/rustc-hash.20and.20performance.20of.20rustdoc-types/near/474855731) performace gains for some consumers
+([#42](https://github.com/rust-lang/rustdoc-types/pull/42), [rust#131936](https://github.com/rust-lang/rust/pull/131936)).
+
 
 - Format Version: 36
 - Upstream Commit: [`d1fa49b2e66c343210c413b68ed57f150b7b89d8`](https://github.com/rust-lang/rust/commit/d1fa49b2e66c343210c413b68ed57f150b7b89d8)
