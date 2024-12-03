@@ -1,3 +1,21 @@
+<a name="v0.33.0"></a>
+# [v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.33.0) - 2024-12-03
+
+TODO: Changelog.
+
+- Format Version: 37
+- Upstream Commit: [`f33dba028704d108497b8c06943b9bbc3d14c42b`](https://github.com/rust-lang/rust/commit/f33dba028704d108497b8c06943b9bbc3d14c42b)
+- Diff: [v0.32.2...v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.32.2...v0.33.0)
+
+<a name="v0.33.0"></a>
+# [v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.33.0) - 2024-12-03
+
+- Format Version: 37
+- Upstream Commit: [`f33dba028704d108497b8c06943b9bbc3d14c42b`](https://github.com/rust-lang/rust/commit/f33dba028704d108497b8c06943b9bbc3d14c42b)
+- Diff: [v0.32.2...v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.32.2...v0.33.0)
+
+Add new `is_unsafe` field in `Static` struct.
+
 <a name="v0.32.2"></a>
 # [v0.32.2](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.32.2) - 2024-10-23
 
@@ -11,7 +29,7 @@
 # [v0.32.1](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.32.1) - 2024-10-20
 
 **New Feature**: The optional `rustc-hash` cargo feature has been added.
-This changes the hashing algorithm used to [a speedy non-cryptographic hashing algorith](https://github.com/rust-lang/rustc-hash) also used in rustc. 
+This changes the hashing algorithm used to [a speedy non-cryptographic hashing algorith](https://github.com/rust-lang/rustc-hash) also used in rustc.
 This has lead to [modest but appreciable](https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc/topic/rustc-hash.20and.20performance.20of.20rustdoc-types/near/474855731) performace gains for some consumers
 ([#42](https://github.com/rust-lang/rustdoc-types/pull/42), [rust#131936](https://github.com/rust-lang/rust/pull/131936)).
 
