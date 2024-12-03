@@ -1,20 +1,11 @@
 <a name="v0.33.0"></a>
 # [v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.33.0) - 2024-12-03
 
-TODO: Changelog.
+**Breaking Change**: Add new `is_unsafe` field in `Static` struct ([rust#133715](https://github.com/rust-lang/rust/pull/133715)).
 
 - Format Version: 37
 - Upstream Commit: [`f33dba028704d108497b8c06943b9bbc3d14c42b`](https://github.com/rust-lang/rust/commit/f33dba028704d108497b8c06943b9bbc3d14c42b)
 - Diff: [v0.32.2...v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.32.2...v0.33.0)
-
-<a name="v0.33.0"></a>
-# [v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.33.0) - 2024-12-03
-
-- Format Version: 37
-- Upstream Commit: [`f33dba028704d108497b8c06943b9bbc3d14c42b`](https://github.com/rust-lang/rust/commit/f33dba028704d108497b8c06943b9bbc3d14c42b)
-- Diff: [v0.32.2...v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.32.2...v0.33.0)
-
-Add new `is_unsafe` field in `Static` struct.
 
 <a name="v0.32.2"></a>
 # [v0.32.2](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.32.2) - 2024-10-23
