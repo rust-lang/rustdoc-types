@@ -1,3 +1,18 @@
+<a name="v0.34.0"></a>
+# [v0.34.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.34.0) - 2025-01-15
+
+**Breaking Change**: The `Path::name` field now only holds item name rather than
+the full path. Users needing the full path can find it in the `Crate::paths` map
+([rust#134880](https://github.com/rust-lang/rust/pull/134880)).
+
+No changes were made to the schema (i.e. the public api for this crate is
+unchanged), but the format version has been bumped, as this may effect consuming
+tools regardless. 
+
+- Format Version: 38
+- Upstream Commit: [`2c4aee92fa65e74f23ad7853937db8d2c4bfa6c8`](https://github.com/rust-lang/rust/commit/2c4aee92fa65e74f23ad7853937db8d2c4bfa6c8)
+- Diff: [v0.33.0...v0.34.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.33.0...v0.34.0)
+
 <a name="v0.33.0"></a>
 # [v0.33.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.33.0) - 2024-12-03
 
