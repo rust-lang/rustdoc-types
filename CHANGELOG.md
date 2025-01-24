@@ -1,3 +1,16 @@
+<a name="v0.35.0"></a>
+# [v0.35.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.35.0) - 2025-01-24
+
+**Breaking Change**: Rename the `Path::name` field to `Path::path`, and make it
+have the entire path. This effectively reverts the [previous release](#v0.34.0),
+as it was [not possible for many consumers to
+migrate](https://github.com/rust-lang/rust/issues/135600)
+([rust#135799](https://github.com/rust-lang/rust/pull/135799)).
+
+- Format Version: 39
+- Upstream Commit: [`40e28582bb95e33f762dea75b78f6ebb5c29b836`](https://github.com/rust-lang/rust/commit/40e28582bb95e33f762dea75b78f6ebb5c29b836)
+- Diff: [v0.34.0...v0.35.0](https://github.com/aDotInTheVoid/rustdoc-types/compare/v0.34.0...v0.35.0)
+
 <a name="v0.34.0"></a>
 # [v0.34.0](https://github.com/aDotInTheVoid/rustdoc-types/releases/tag/v0.34.0) - 2025-01-15
 
@@ -7,7 +20,7 @@ the full path. Users needing the full path can find it in the `Crate::paths` map
 
 No changes were made to the schema (i.e. the public api for this crate is
 unchanged), but the format version has been bumped, as this may effect consuming
-tools regardless. 
+tools regardless.
 
 - Format Version: 38
 - Upstream Commit: [`2c4aee92fa65e74f23ad7853937db8d2c4bfa6c8`](https://github.com/rust-lang/rust/commit/2c4aee92fa65e74f23ad7853937db8d2c4bfa6c8)
