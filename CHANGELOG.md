@@ -1,3 +1,12 @@
+<a name="v0.36.0"></a>
+# [v0.36.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.36.0) - 2025-02-26
+
+**Breaking Change**: Change format of `Item::attrs` from e.g. `"#[inline]"` to e.g. `#[attr="Inline(Hint)"]` which is equivalent to the hir pretty-printing of attributes ([rust#135726](https://github.com/rust-lang/rust/pull/135726)).
+
+- Format Version: 40
+- Upstream Commit: [`f321f107e3af37996ac6cca74294d581f2fb20e7`](https://github.com/rust-lang/rust/commit/f321f107e3af37996ac6cca74294d581f2fb20e7)
+- Diff: [v0.35.0...v0.36.0](https://github.com/rust-lang/rustdoc-types/compare/v0.35.0...v0.36.0)
+
 <a name="v0.35.0"></a>
 # [v0.35.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.35.0) - 2025-01-24
 
