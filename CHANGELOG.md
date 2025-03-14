@@ -1,3 +1,14 @@
+<a name="v0.37.0"></a>
+# [v0.37.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.37.0) - 2025-03-14
+
+**Breaking Change**: Change `GenericBound::Use` from `Vec<String>` to
+`Vec<PreciseCapturingArg>`, a new enum
+([rust#138109](https://github.com/rust-lang/rust/pull/138109)).
+
+- Format Version: 41
+- Upstream Commit: [`112f7b01a1b25035cd8b288d6936c6be48a3d845`](https://github.com/rust-lang/rust/commit/112f7b01a1b25035cd8b288d6936c6be48a3d845)
+- Diff: [v0.36.0...v0.37.0](https://github.com/rust-lang/rustdoc-types/compare/v0.36.0...v0.37.0)
+
 <a name="v0.36.0"></a>
 # [v0.36.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.36.0) - 2025-02-26
 

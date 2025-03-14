@@ -29,7 +29,7 @@ use serde::{Deserialize, Serialize};
 /// This integer is incremented with every breaking change to the API,
 /// and is returned along with the JSON blob as [`Crate::format_version`].
 /// Consuming code should assert that this value matches the format version(s) that it supports.
-pub const FORMAT_VERSION: u32 = 40;
+pub const FORMAT_VERSION: u32 = 41;
 
 /// The root of the emitted JSON blob.
 ///
@@ -908,7 +908,7 @@ pub enum GenericBound {
     /// ```
     Outlives(String),
     /// `use<'a, T>` precise-capturing bound syntax
-    Use(Vec<String>),
+    Use(Vec<PreciseCapturingArg>),
 }
 
 /// A set of modifiers applied to a trait.
@@ -924,6 +924,22 @@ pub enum TraitBoundModifier {
     /// Indicates that the trait bound must be applicable in both a run-time and a compile-time
     /// context.
     MaybeConst,
+}
+
+/// One precise capturing argument. See [the rust reference](https://doc.rust-lang.org/reference/types/impl-trait.html#precise-capturing).
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum PreciseCapturingArg {
+    /// A lifetime.
+    /// ```rust
+    /// pub fn hello<'a, T, const N: usize>() -> impl Sized + use<'a, T, N> {}
+    /// //                                                        ^^
+    Lifetime(String),
+    /// A type or constant parameter.
+    /// ```rust
+    /// pub fn hello<'a, T, const N: usize>() -> impl Sized + use<'a, T, N> {}
+    /// //                                                            ^  ^
+    Param(String),
 }
 
 /// Either a type or a constant, usually stored as the right-hand side of an equation in places like
