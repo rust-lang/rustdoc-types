@@ -1,3 +1,14 @@
+<a name="v0.38.0"></a>
+# [v0.38.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.38.0) - 2025-03-16
+
+**Breaking Change**: Add variant `GenericArgs::ReturnTypeNotation` to support
+[return type notation](https://github.com/rust-lang/rust/issues/109417)
+([rust#137956](https://github.com/rust-lang/rust/pull/137956)).
+
+- Format Version: 42
+- Upstream Commit: [`e3ac1fa81abd321abe193f491ed06c7d388f68fe`](https://github.com/rust-lang/rust/commit/e3ac1fa81abd321abe193f491ed06c7d388f68fe)
+- Diff: [v0.37.0...v0.38.0](https://github.com/rust-lang/rustdoc-types/compare/v0.37.0...v0.38.0)
+
 <a name="v0.37.0"></a>
 # [v0.37.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.37.0) - 2025-03-14
 
