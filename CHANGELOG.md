@@ -1,3 +1,21 @@
+<a name="v0.39.0"></a>
+# [v0.39.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.39.0) - 2025-03-24
+
+**Breaking Change**: Change format of `Item::attrs` for `#[repr(..)]` from HIR
+debug printing to how they're written in source-code. For example 
+`#[attr = Repr([ReprC, ReprInt(SignedInt(I8))])])` would now be represented as 
+`#[repr(C,i8)]` ((rust#138018)[https://github.com/rust-lang/rust/pull/138018]). 
+
+This somewhat undoes (v0.36.0)[#v0.36.0].
+
+No changes were made to the schema (i.e. the public api for this crate is
+unchanged), but the format version has been bumped, as this may effect consuming
+tools regardless.
+
+- Format Version: 43
+- Upstream Commit: [`bafdbcadd5e70e4a1a35647002c30efd315621b4`](https://github.com/rust-lang/rust/commit/bafdbcadd5e70e4a1a35647002c30efd315621b4)
+- Diff: [v0.38.0...v0.39.0](https://github.com/rust-lang/rustdoc-types/compare/v0.38.0...v0.39.0)
+
 <a name="v0.38.0"></a>
 # [v0.38.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.38.0) - 2025-03-16
 
