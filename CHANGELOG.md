@@ -1,3 +1,13 @@
+<a name="v0.40.0"></a>
+# [v0.40.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.40.0) - 2025-04-19
+
+**Breaking Change**: Add `Crate::target` field with information about the target and its features
+([rust#139393](https://github.com/rust-lang/rust/pull/139393)).
+
+- Format Version: 44
+- Upstream Commit: [`8c50f95cf088c6ccf882a152bd46c090efa3a1c7`](https://github.com/rust-lang/rust/commit/8c50f95cf088c6ccf882a152bd46c090efa3a1c7)
+- Diff: [v0.39.0...v0.40.0](https://github.com/rust-lang/rustdoc-types/compare/v0.39.0...v0.40.0)
+
 <a name="v0.39.0"></a>
 # [v0.39.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.39.0) - 2025-03-24
 
