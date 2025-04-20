@@ -1,3 +1,21 @@
+<a name="v0.41.0"></a>
+# [v0.41.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.41.0) - 2025-04-20
+
+**Breaking Change**: Make `Span::begin` and `Span::end` consistantly one-indexed
+for both line and column
+([rust#139919](https://github.com/rust-lang/rust/pull/139919)). 
+Previously this was incorrecly documented both line and column being
+zero-indexed, but line was actually one-indexed
+([rust#139906](https://github.com/rust-lang/rust/issues/139906)).
+
+No changes were made to the schema (i.e. the public api for this crate is
+unchanged), but the format version has been bumped, as this may effect consuming
+tools regardless.
+
+- Format Version: 45
+- Upstream Commit: [`076016d55afdf760c7e30e23c5df8f0c079cd85b`](https://github.com/rust-lang/rust/commit/076016d55afdf760c7e30e23c5df8f0c079cd85b)
+- Diff: [v0.40.0...v0.41.0](https://github.com/rust-lang/rustdoc-types/compare/v0.40.0...v0.41.0)
+
 <a name="v0.40.0"></a>
 # [v0.40.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.40.0) - 2025-04-19
 
