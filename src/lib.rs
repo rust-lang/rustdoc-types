@@ -21,7 +21,7 @@ use std::path::PathBuf;
 
 #[cfg(feature = "rustc-hash")]
 use rustc_hash::FxHashMap as HashMap;
-use serde::{Deserialize, Serialize};
+use serde_derive::{Deserialize, Serialize};
 
 
 /// The version of JSON output that this crate represents.
