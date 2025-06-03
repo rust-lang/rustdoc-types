@@ -1,3 +1,25 @@
+<a name="v0.46.0"></a>
+# [v0.46.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.46.0) - 2025-06-03
+
+**Versioning Change**: The crate version now corresponds to the `FORMAT_VERSION` constant.
+([#24](https://github.com/rust-lang/rustdoc-types/issues/24))
+
+**Feature**: `Id` now implments `Ord` and `PartialOrd`, making it usable as a
+key in a `BTreeMap`
+([rust#141898](https://github.com/rust-lang/rust/pull/141898)).
+
+**Breaking Change(??)**: `Item::attrs` now always includes `#[repr]`. No changes
+were made to the schema but the format version has been bumped, as this may
+effect consuming tools regardless
+([rust#141126](https://github.com/rust-lang/rust/pull/141126)).
+
+**Documentation Improvements**: Fixed some false docs
+([rust#141364](https://github.com/rust-lang/rust/pull/141364)).
+
+- Format Version: 46
+- Upstream Commit: [`6be3c3ceb7351677999c661dfba0110992b37132`](https://github.com/rust-lang/rust/commit/6be3c3ceb7351677999c661dfba0110992b37132)
+- Diff: [v0.41.0...v0.46.0](https://github.com/rust-lang/rustdoc-types/compare/v0.41.0...v0.46.0)
+
 <a name="v0.41.0"></a>
 # [v0.41.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.41.0) - 2025-04-20
 
