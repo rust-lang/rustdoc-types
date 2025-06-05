@@ -1,3 +1,16 @@
+<a name="v0.46.1"></a>
+# [v0.46.1](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.46.1) - 2025-06-05
+
+**Build Time Improvement**: Depend seperatly on `serde` and `serde_derive`
+(rather than depeding on `serde` with the `"derive"` feature). This lets them be
+built in parallel, yielding faster compile times
+([#49](https://github.com/rust-lang/rustdoc-types/pull/49),
+[rust#141989](https://github.com/rust-lang/rust/pull/141989)).
+
+- Format Version: 46
+- Upstream Commit: [`763663ad56672b0f0635ad25c0c1a52e7773e0b9`](https://github.com/rust-lang/rust/commit/763663ad56672b0f0635ad25c0c1a52e7773e0b9)
+- Diff: [v0.46.0...v0.46.1](https://github.com/rust-lang/rustdoc-types/compare/v0.46.0...v0.46.1)
+
 <a name="v0.46.0"></a>
 # [v0.46.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.46.0) - 2025-06-03
 

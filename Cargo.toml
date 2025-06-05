@@ -1,6 +1,6 @@
 [package]
 name = "rustdoc-types"
-version = "0.46.0"
+version = "0.46.1"
 edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Types for rustdoc's json output"
@@ -8,8 +8,8 @@ repository = "https://github.com/rust-lang/rustdoc-types"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-serde = {version="1"}
-serde_derive = {version="1"}
+serde = {version="1.0.186"}
+serde_derive = {version="1.0.186"}
 rustc-hash = {version="2", optional=true}
 
 [features]
