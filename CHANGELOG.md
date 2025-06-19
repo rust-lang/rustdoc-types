@@ -8,7 +8,7 @@ Inline(Hint)]"`, instead of `#["inline"]`
 
 > [!NOTE]
 > Due to a mistake, format version 47/rustdoc-types 0.47.0 was skipped, and will
-> never exist see [here](https://github.com/rust-lang/rust/pull/138165#discussion_r2157457743)
+> never exist. See [here](https://github.com/rust-lang/rust/pull/138165#discussion_r2157457743)
 > for details.
 
 - Format Version: 48
@@ -18,8 +18,8 @@ Inline(Hint)]"`, instead of `#["inline"]`
 <a name="v0.46.1"></a>
 # [v0.46.1](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.46.1) - 2025-06-05
 
-**Build Time Improvement**: Depend seperatly on `serde` and `serde_derive`
-(rather than depeding on `serde` with the `"derive"` feature). This lets them be
+**Build Time Improvement**: Depend separately on `serde` and `serde_derive`
+(rather than depending on `serde` with the `"derive"` feature). This lets them be
 built in parallel, yielding faster compile times
 ([#49](https://github.com/rust-lang/rustdoc-types/pull/49),
 [rust#141989](https://github.com/rust-lang/rust/pull/141989)).
@@ -34,7 +34,7 @@ built in parallel, yielding faster compile times
 **Versioning Change**: The crate version now corresponds to the `FORMAT_VERSION` constant.
 ([#24](https://github.com/rust-lang/rustdoc-types/issues/24))
 
-**Feature**: `Id` now implments `Ord` and `PartialOrd`, making it usable as a
+**Feature**: `Id` now implements `Ord` and `PartialOrd`, making it usable as a
 key in a `BTreeMap`
 ([rust#141898](https://github.com/rust-lang/rust/pull/141898)).
 
@@ -53,10 +53,10 @@ effect consuming tools regardless
 <a name="v0.41.0"></a>
 # [v0.41.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.41.0) - 2025-04-20
 
-**Breaking Change**: Make `Span::begin` and `Span::end` consistantly one-indexed
+**Breaking Change**: Make `Span::begin` and `Span::end` consistently one-indexed
 for both line and column
 ([rust#139919](https://github.com/rust-lang/rust/pull/139919)). 
-Previously this was incorrecly documented both line and column being
+Previously this was incorrectly documented both line and column being
 zero-indexed, but line was actually one-indexed
 ([rust#139906](https://github.com/rust-lang/rust/issues/139906)).
 
@@ -126,7 +126,7 @@ e.g. `#[attr="Inline(Hint)"]` which is equivalent to the hir pretty-printing of
 attributes ([rust#135726](https://github.com/rust-lang/rust/pull/135726)).
 
 This is result of a refractoring of how rustc represents attributes. There will
-be a change (at some point) to make them easer to use in rustdoc-json. See
+be a change (at some point) to make them easier to use in rustdoc-json. See
 [rust#137645](https://github.com/rust-lang/rust/issues/137645) for details.
 
 No changes were made to the schema (i.e. the public api for this crate is
@@ -187,8 +187,8 @@ tools regardless.
 # [v0.32.1](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.32.1) - 2024-10-20
 
 **New Feature**: The optional `rustc-hash` cargo feature has been added.
-This changes the hashing algorithm used to [a speedy non-cryptographic hashing algorith](https://github.com/rust-lang/rustc-hash) also used in rustc.
-This has lead to [modest but appreciable](https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc/topic/rustc-hash.20and.20performance.20of.20rustdoc-types/near/474855731) performace gains for some consumers
+This changes the hashing algorithm used to [a speedy non-cryptographic hashing algorithm](https://github.com/rust-lang/rustc-hash) also used in rustc.
+This has lead to [modest but appreciable](https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc/topic/rustc-hash.20and.20performance.20of.20rustdoc-types/near/474855731) performance gains for some consumers
 ([#42](https://github.com/rust-lang/rustdoc-types/pull/42), [rust#131936](https://github.com/rust-lang/rust/pull/131936)).
 
 
