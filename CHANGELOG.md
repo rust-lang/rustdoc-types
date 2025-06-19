@@ -1,3 +1,20 @@
+<a name="v0.48.0"></a>
+# [v0.48.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.48.0) - 2025-06-19
+
+**Breaking Change(??)**: `#[inline]` in `Item::attrs` as `"#[attr =
+Inline(Hint)]"`, instead of `#["inline"]`
+([rust#138165](https://github.com/rust-lang/rust/pull/138165)).
+
+
+> [!NOTE]
+> Due to a mistake, format version 47/rustdoc-types 0.47.0 was skipped, and will
+> never exist see [here](https://github.com/rust-lang/rust/pull/138165#discussion_r2157457743)
+> for details.
+
+- Format Version: 48
+- Upstream Commit: [`81f8b570b9dd5d7bef27e1f1391dc73eb8fa4ff6`](https://github.com/rust-lang/rust/commit/81f8b570b9dd5d7bef27e1f1391dc73eb8fa4ff6)
+- Diff: [v0.46.1...v0.48.0](https://github.com/rust-lang/rustdoc-types/compare/v0.46.1...v0.48.0)
+
 <a name="v0.46.1"></a>
 # [v0.46.1](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.46.1) - 2025-06-05
 
