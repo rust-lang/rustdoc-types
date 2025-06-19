@@ -10,9 +10,6 @@ col2() {
 col6() {
 	awk '{print $6}'
 }
-grepor() {
-	grep $1 || true
-}
 
 # Check we have two arguments, and assign them to variables
 
@@ -34,7 +31,7 @@ fi
 mv tmp Cargo.toml
 
 date=$(date -u +'%Y-%m-%d')
-format_version=$(cat src/lib.rs | grepor FORMAT_VERSION | col6 | sd ";" "")
+format_version=$(cat src/lib.rs | grep 'FORMAT_VERSION: u32 =' | col6 | sd ";" "")
 rustc_commit=$(cat COMMIT.txt)
 
 # We do a shuffling dance to append the new version to the top of the changelog
