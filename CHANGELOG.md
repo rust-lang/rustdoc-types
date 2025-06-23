@@ -1,8 +1,18 @@
+<a name="v0.49.0"></a>
+# [v0.49.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.49.0) - 2025-06-23
+
+**Breaking Change(??)**: `#[optimize(size)]` in `Item::attrs` is now `"#[attr = Optimize(Size)]"`, instead of `"#[optimize(size)]"`
+([rust#138291](https://github.com/rust-lang/rust/pull/138291)).
+
+- Format Version: 49
+- Upstream Commit: [`3c418ec505233927d562ff906d8eea309aee1905`](https://github.com/rust-lang/rust/commit/3c418ec505233927d562ff906d8eea309aee1905)
+- Diff: [v0.48.0...v0.49.0](https://github.com/rust-lang/rustdoc-types/compare/v0.48.0...v0.49.0)
+
 <a name="v0.48.0"></a>
 # [v0.48.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.48.0) - 2025-06-19
 
 **Breaking Change(??)**: `#[inline]` in `Item::attrs` as `"#[attr =
-Inline(Hint)]"`, instead of `#["inline"]`
+Inline(Hint)]"`, instead of `"#[inline]"`
 ([rust#138165](https://github.com/rust-lang/rust/pull/138165)).
 
 
