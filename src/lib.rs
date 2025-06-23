@@ -36,8 +36,8 @@ use serde_derive::{Deserialize, Serialize};
 // will instead cause conflicts. See #94591 for more. (This paragraph and the "Latest feature" line
 // are deliberately not in a doc comment, because they need not be in public docs.)
 //
-// Latest feature: Pretty printing of cold attributes changed
-pub const FORMAT_VERSION: u32 = 50;
+// Latest feature: improve handling of generic args
+pub const FORMAT_VERSION: u32 = 51;
 
 /// The root of the emitted JSON blob.
 ///
@@ -276,8 +276,8 @@ pub struct PolyTrait {
 /// A set of generic arguments provided to a path segment, e.g.
 ///
 /// ```text
-/// std::option::Option::<u32>::None
-///                      ^^^^^
+/// std::option::Option<u32>
+///                    ^^^^^
 /// ```
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -330,7 +330,7 @@ pub enum GenericArg {
     Const(Constant),
     /// A generic argument that's explicitly set to be inferred.
     /// ```text
-    /// std::vec::Vec::<_>::new()
+    /// std::vec::Vec::<_>
     ///                 ^
     /// ```
     Infer,
@@ -361,7 +361,7 @@ pub struct AssocItemConstraint {
     /// The name of the associated type/constant.
     pub name: String,
     /// Arguments provided to the associated type/constant.
-    pub args: GenericArgs,
+    pub args: Option<Box<GenericArgs>>,
     /// The kind of bound applied to the associated type/constant.
     pub binding: AssocItemConstraintKind,
 }
@@ -1117,7 +1117,7 @@ pub enum Type {
         /// <core::slice::IterMut<'static, u32> as BetterIterator>::Item<'static>
         /// //                                                          ^^^^^^^^^
         /// ```
-        args: Box<GenericArgs>,
+        args: Option<Box<GenericArgs>>,
         /// The type with which this type is associated.
         ///
         /// ```ignore (incomplete expression)

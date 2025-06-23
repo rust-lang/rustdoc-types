@@ -1,3 +1,13 @@
+<a name="v0.51.0"></a>
+# [v0.51.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.51.0) - 2025-06-23
+
+**Breaking Change**: Change `AssocItemConstraint::args` and `Type::QualifiedPath::args` from `GenericArgs` to `Option<Box<GenericArgs>>`.
+This is consistent with `Path::args`, and smaller on disk ([rust#142502](https://github.com/rust-lang/rust/pull/142502)).
+
+- Format Version: 51
+- Upstream Commit: [`7fa8901cd090093a57723d3f196c27db3b98ad94`](https://github.com/rust-lang/rust/commit/7fa8901cd090093a57723d3f196c27db3b98ad94)
+- Diff: [v0.50.0...v0.51.0](https://github.com/rust-lang/rustdoc-types/compare/v0.50.0...v0.51.0)
+
 <a name="v0.50.0"></a>
 # [v0.50.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.50.0) - 2025-06-23
 
