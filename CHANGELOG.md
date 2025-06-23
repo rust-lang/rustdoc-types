@@ -1,3 +1,13 @@
+<a name="v0.50.0"></a>
+# [v0.50.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.50.0) - 2025-06-23
+
+**Breaking Change(??)**: `#[cold]` in `Item::attrs` is now `"#[attr = Cold]"`, instead of `"#[cold]"`
+([rust#142491](https://github.com/rust-lang/rust/pull/142491)).
+
+- Format Version: 50
+- Upstream Commit: [`b9107a83a1ace3f292641977df70e9610e0e4482`](https://github.com/rust-lang/rust/commit/b9107a83a1ace3f292641977df70e9610e0e4482)
+- Diff: [v0.49.0...v0.50.0](https://github.com/rust-lang/rustdoc-types/compare/v0.49.0...v0.50.0)
+
 <a name="v0.49.0"></a>
 # [v0.49.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.49.0) - 2025-06-23
 
