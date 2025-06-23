@@ -1,3 +1,15 @@
+<a name="v0.52.0"></a>
+# [v0.52.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.52.0) - 2025-06-23
+
+**Breaking Change(??)**: `#[must_use = "text"]` in `Item::attrs` is now
+`"#[attr = MustUse {reason: \"text\"}]"`,
+instead of `"#[must_use = \"text\"]"`
+([rust#142780](https://github.com/rust-lang/rust/pull/142780)).
+
+- Format Version: 52
+- Upstream Commit: [`b24df424888d9db3a22d6d52f3f516e29d5be21a`](https://github.com/rust-lang/rust/commit/b24df424888d9db3a22d6d52f3f516e29d5be21a)
+- Diff: [v0.51.0...v0.52.0](https://github.com/rust-lang/rustdoc-types/compare/v0.51.0...v0.52.0)
+
 <a name="v0.51.0"></a>
 # [v0.51.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.51.0) - 2025-06-23
 
