@@ -1,3 +1,12 @@
+<a name="v0.53.0"></a>
+# [v0.53.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.53.0) - 2025-06-23
+
+**No Changes**: Due to a mistake, we bumped the `FORMAT_VERSION` without changing rustdoc's output.
+
+- Format Version: 53
+- Upstream Commit: [`2084831cd54eb603fec6cd85ebd9d1426b09f628`](https://github.com/rust-lang/rust/commit/2084831cd54eb603fec6cd85ebd9d1426b09f628)
+- Diff: [v0.52.0...v0.53.0](https://github.com/rust-lang/rustdoc-types/compare/v0.52.0...v0.53.0)
+
 <a name="v0.52.0"></a>
 # [v0.52.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.52.0) - 2025-06-23
 
