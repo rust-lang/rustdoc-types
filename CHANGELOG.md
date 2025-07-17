@@ -1,3 +1,16 @@
+<a name="v0.54.0"></a>
+# [v0.54.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.54.0) - 2025-07-17
+
+**Breaking Change**: Change `Item::attrs` from `Vec<String>` to
+`Vec<Attribute>`. `Attribute` is a new enum that contains variants for different
+attributes, and a catch-all `Other` varient. This will mean rustdoc-json
+consumers won't need to parse common attributes. Changes to the stringified
+representation in `Attribute::Other` won't cause a new `FORMAT_VERSION`.
+
+- Format Version: 54
+- Upstream Commit: [`078332fdc8e11f7ff8253c019085098538ec3c2a`](https://github.com/rust-lang/rust/commit/078332fdc8e11f7ff8253c019085098538ec3c2a)
+- Diff: [v0.53.0...v0.54.0](https://github.com/rust-lang/rustdoc-types/compare/v0.53.0...v0.54.0)
+
 <a name="v0.53.0"></a>
 # [v0.53.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.53.0) - 2025-06-23
 
