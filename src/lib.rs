@@ -242,6 +242,8 @@ pub enum Attribute {
     /// 1. A HIR debug printing, like `"#[attr = Optimize(Speed)]"`
     /// 2. The attribute as it appears in source form, like
     ///    `"#[optimize(speed)]"`.
+    // XXX: This variant must be last in the enum because it is untagged.
+    #[serde(untagged)]
     Other(String),
 }
 
@@ -878,6 +880,8 @@ pub enum Abi {
     /// Can be specified as `extern "system"`.
     System { unwind: bool },
     /// Any other ABI, including unstable ones.
+    // XXX: This variant must be last in the enum because it is untagged.
+    #[serde(untagged)]
     Other(String),
 }
 
