@@ -6,7 +6,7 @@
 attributes, and a catch-all `Other` varient. This will mean rustdoc-json
 consumers won't need to parse common attributes. Changes to the stringified
 representation in `Attribute::Other` won't cause a new `FORMAT_VERSION`
-[rust#142936](https://github.com/rust-lang/rust/pull/142936).
+([rust#142936](https://github.com/rust-lang/rust/pull/142936)).
 
 - Format Version: 54
 - Upstream Commit: [`078332fdc8e11f7ff8253c019085098538ec3c2a`](https://github.com/rust-lang/rust/commit/078332fdc8e11f7ff8253c019085098538ec3c2a)
