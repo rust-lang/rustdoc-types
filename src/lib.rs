@@ -22,7 +22,7 @@ use std::path::PathBuf;
 #[cfg(feature = "rustc-hash")]
 use rustc_hash::FxHashMap as HashMap;
 use serde_derive::{Deserialize, Serialize};
-
+use serde::de::Error;
 
 /// The version of JSON output that this crate represents.
 ///
@@ -201,7 +201,7 @@ pub struct Item {
     pub inner: ItemEnum,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize)]
 #[serde(rename_all = "snake_case")]
 /// An attribute, e.g. `#[repr(C)]`
 ///
@@ -242,10 +242,107 @@ pub enum Attribute {
     /// 1. A HIR debug printing, like `"#[attr = Optimize(Speed)]"`
     /// 2. The attribute as it appears in source form, like
     ///    `"#[optimize(speed)]"`.
-    // XXX: This variant must be last in the enum because it is untagged.
-    #[serde(untagged)]
     Other(String),
 }
+
+impl<'de> serde::Deserialize<'de> for Attribute {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        let s = String::deserialize(deserializer)?;
+        
+        // Strip #[ and ] if present
+        let cleaned = s.trim_start_matches("#[")
+            .trim_end_matches("]")
+            .trim();
+
+        // Now match on the cleaned string
+        Ok(match cleaned {
+            "non_exhaustive" => Attribute::NonExhaustive,
+            s if s.starts_with("must_use") => {
+                // Parse reason if present
+                let reason = if s.len() > "must_use".len() {
+                    Some(s["must_use".len()..].trim_matches(|c| c == '(' || c == ')' || c == '"').to_string())
+                } else {
+                    None
+                };
+                Attribute::MustUse { reason }
+            },
+            s if s.starts_with("export_name") => {
+                let name = s["export_name".len()..].trim_matches(|c| c == '=' || c == ' ' || c == '"').to_string();
+                Attribute::ExportName(name)
+            },
+            
+            s if s.starts_with("export_name") => {
+                let name = s["export_name".len()..].trim_matches(|c| c == '=' || c == ' ' || c == '"').to_string();
+                Attribute::ExportName(name)
+            },
+            
+            s if s.starts_with("link_section") => {
+                let section = s["link_section".len()..].trim_matches(|c| c == '=' || c == ' ' || c == '"').to_string();
+                Attribute::LinkSection(section)
+            },
+            
+            "automatically_derived" => Attribute::AutomaticallyDerived,
+            
+            s if s.starts_with("repr") => {
+                let repr_str = s["repr".len()..].trim_matches(|c| c == '(' || c == ')').trim();
+                let parts: Vec<&str> = repr_str.split(',').map(str::trim).collect();
+                
+                let mut repr = AttributeRepr {
+                    kind: ReprKind::C, // Will be overwritten
+                    align: None,
+                    packed: None,
+                    int: None,
+                };
+
+                for part in parts {
+                    if part.starts_with("align(") {
+                        let align_str = part.trim_start_matches("align(").trim_end_matches(')');
+                        repr.align = Some(align_str.parse().map_err(D::Error::custom)?);
+                    } else if part.starts_with("packed(") {
+                        let packed_str = part.trim_start_matches("packed(").trim_end_matches(')');
+                        repr.packed = Some(packed_str.parse().map_err(D::Error::custom)?);
+                    } else if part == "C" {
+                        repr.kind = ReprKind::C;
+                    } else if part == "transparent" {
+                        repr.kind = ReprKind::Transparent;
+                    } else if ["i8", "i16", "i32", "i64", "i128", "isize",
+                              "u8", "u16", "u32", "u64", "u128", "usize"].contains(&part) {
+                        repr.int = Some(part.to_string());
+                    }
+                    // Add other ReprKind variants as needed
+                }
+                
+                Attribute::Repr(repr)
+            },
+            
+            "no_mangle" => Attribute::NoMangle,
+            
+            s if s.starts_with("target_feature") => {
+                let features_str = s["target_feature".len()..].trim_matches(|c| c == '(' || c == ')').trim();
+                let enable: Vec<String> = features_str
+                    .split(',')
+                    .filter_map(|feature| {
+                        let feature = feature.trim();
+                        if feature.starts_with("enable = ") {
+                            Some(feature["enable = ".len()..].trim_matches('"').to_string())
+                        } else {
+                            None
+                        }
+                    })
+                    .collect();
+                Attribute::TargetFeature { enable }
+            },
+
+            
+            // Default case
+            _ => Attribute::Other(s.to_string()),
+        })
+    }
+}
+
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 /// The contents of a `#[repr(...)]` attribute.

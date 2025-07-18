@@ -11,6 +11,7 @@ repository = "https://github.com/rust-lang/rustdoc-types"
 serde = {version="1.0.186"}
 serde_derive = {version="1.0.186"}
 rustc-hash = {version="2", optional=true}
+serde_json = "1.0"
 
 [features]
 default = []

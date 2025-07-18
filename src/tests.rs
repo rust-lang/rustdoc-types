@@ -3,8 +3,14 @@ use super::*;
 #[test]
 fn test_struct_info_roundtrip() {
     let s = ItemEnum::Struct(Struct {
-        generics: Generics { params: vec![], where_predicates: vec![] },
-        kind: StructKind::Plain { fields: vec![], has_stripped_fields: false },
+        generics: Generics {
+            params: vec![],
+            where_predicates: vec![],
+        },
+        kind: StructKind::Plain {
+            fields: vec![],
+            has_stripped_fields: false,
+        },
         impls: vec![],
     });
 
@@ -22,7 +28,10 @@ fn test_struct_info_roundtrip() {
 #[test]
 fn test_union_info_roundtrip() {
     let u = ItemEnum::Union(Union {
-        generics: Generics { params: vec![], where_predicates: vec![] },
+        generics: Generics {
+            params: vec![],
+            where_predicates: vec![],
+        },
         has_stripped_fields: false,
         fields: vec![],
         impls: vec![],
