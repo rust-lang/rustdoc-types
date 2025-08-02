@@ -1,3 +1,14 @@
+<a name="v0.55.0"></a>
+# [v0.55.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.55.0) - 2025-08-02
+
+**Breaking Change**: Add `Attribute::MacroUse` variant.
+This means `#[macro_use]` is no longer represented by `Attribute::Other`
+((rust#144700)[https://github.com/rust-lang/rust/pull/144700]).
+
+- Format Version: 55
+- Upstream Commit: [`a33e084afe698e0a025211abd6dc1c9a4bb22e9d`](https://github.com/rust-lang/rust/commit/a33e084afe698e0a025211abd6dc1c9a4bb22e9d)
+- Diff: [v0.54.0...v0.55.0](https://github.com/rust-lang/rustdoc-types/compare/v0.54.0...v0.55.0)
+
 <a name="v0.54.0"></a>
 # [v0.54.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.54.0) - 2025-07-17
 
