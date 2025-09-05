@@ -1,7 +1,8 @@
 <a name="v0.56.0"></a>
 # [v0.56.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.56.0) - 2025-09-05
 
-TODO: Changelog.
+**Breaking Change**: Add `ItemKind::Attribute` variant
+([rust#142472](https://github.com/rust-lang/rust/pull/142472)).
 
 - Format Version: 56
 - Upstream Commit: [`ab0ee84eac9732e4e81e559c688846b4c1bd400a`](https://github.com/rust-lang/rust/commit/ab0ee84eac9732e4e81e559c688846b4c1bd400a)
@@ -12,7 +13,7 @@ TODO: Changelog.
 
 **Breaking Change**: Add `Attribute::MacroUse` variant.
 This means `#[macro_use]` is no longer represented by `Attribute::Other`
-((rust#144700)[https://github.com/rust-lang/rust/pull/144700]).
+([rust#144700](https://github.com/rust-lang/rust/pull/144700)).
 
 - Format Version: 55
 - Upstream Commit: [`a33e084afe698e0a025211abd6dc1c9a4bb22e9d`](https://github.com/rust-lang/rust/commit/a33e084afe698e0a025211abd6dc1c9a4bb22e9d)
@@ -23,7 +24,7 @@ This means `#[macro_use]` is no longer represented by `Attribute::Other`
 
 **Breaking Change**: Change `Item::attrs` from `Vec<String>` to
 `Vec<Attribute>`. `Attribute` is a new enum that contains variants for different
-attributes, and a catch-all `Other` varient. This will mean rustdoc-json
+attributes, and a catch-all `Other` variant. This will mean rustdoc-json
 consumers won't need to parse common attributes. Changes to the stringified
 representation in `Attribute::Other` won't cause a new `FORMAT_VERSION`
 ([rust#142936](https://github.com/rust-lang/rust/pull/142936)).
