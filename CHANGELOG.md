@@ -1,3 +1,12 @@
+<a name="v0.56.0"></a>
+# [v0.56.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.56.0) - 2025-09-05
+
+TODO: Changelog.
+
+- Format Version: 56
+- Upstream Commit: [`ab0ee84eac9732e4e81e559c688846b4c1bd400a`](https://github.com/rust-lang/rust/commit/ab0ee84eac9732e4e81e559c688846b4c1bd400a)
+- Diff: [v0.55.0...v0.56.0](https://github.com/rust-lang/rustdoc-types/compare/v0.55.0...v0.56.0)
+
 <a name="v0.55.0"></a>
 # [v0.55.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.55.0) - 2025-08-02
 
