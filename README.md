@@ -28,7 +28,7 @@ measure first.
 ## Contributing
 
 This repo is a reexport of
-[`rustdoc-json-types`](https://github.com/rust-lang/rust/blob/master/src/rustdoc-json-types/lib.rs)
+[`rustdoc-json-types`](https://github.com/rust-lang/rust/blob/main/src/rustdoc-json-types/lib.rs)
 from the rust repo. Any change to the contents of [`src/`](src/), should be sent
 to [`rust-lang/rust`](https://github.com/rust-lang/rust/), via their [normal
 contribution

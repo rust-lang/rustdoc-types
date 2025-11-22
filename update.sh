@@ -6,7 +6,7 @@ pyjq() {
 
 case "$#" in
     0)
-        ref="master"
+        ref="main"
         ;;
     1)
         ref="$1"
