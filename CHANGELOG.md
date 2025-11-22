@@ -1,3 +1,13 @@
+<a name="v0.57.0"></a>
+# [v0.57.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.0) - 2025-11-22
+
+**Breaking Change**: Add `ExternalCrate::path` field.
+This can be used to enable robust resolution of external crates.
+
+- Format Version: 57
+- Upstream Commit: [`361af821ab169a98e9fc1db5d3a57978504ed379`](https://github.com/rust-lang/rust/commit/361af821ab169a98e9fc1db5d3a57978504ed379)
+- Diff: [v0.56.0...v0.57.0](https://github.com/rust-lang/rustdoc-types/compare/v0.56.0...v0.57.0)
+
 <a name="v0.56.0"></a>
 # [v0.56.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.56.0) - 2025-09-05
 
