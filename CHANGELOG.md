@@ -181,7 +181,8 @@ tools regardless.
 **Breaking Change**: Change format of `Item::attrs` for `#[repr(..)]` from HIR
 debug printing to how they're written in source-code. For example 
 `#[attr = Repr([ReprC, ReprInt(SignedInt(I8))])])` would now be represented as 
-`#[repr(C,i8)]` ((rust#138018)[https://github.com/rust-lang/rust/pull/138018]). 
+`#[repr(C,i8)]`
+([rust#138018](https://github.com/rust-lang/rust/pull/138018)). 
 
 This somewhat undoes [v0.36.0](#v0.36.0).
 
