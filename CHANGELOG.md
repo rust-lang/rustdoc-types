@@ -1,3 +1,18 @@
+<a name="v0.57.1"></a>
+# [v0.57.1](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.1) - 2026-03-04
+
+
+**New Method**: Add `ItemEnum::ItemKind` method
+([rust#153279](https://github.com/rust-lang/rust/pull/153279)).
+
+**Packaging Improvement**: Don't package development scripts
+([#56](https://github.com/rust-lang/rustdoc-types/pull/56)).
+
+
+- Format Version: 57
+- Upstream Commit: [`931e2c4e43fde6a308ee9933538142ed0927f6d9`](https://github.com/rust-lang/rust/commit/931e2c4e43fde6a308ee9933538142ed0927f6d9)
+- Diff: [v0.57.0...v0.57.1](https://github.com/rust-lang/rustdoc-types/compare/v0.57.0...v0.57.1)
+
 <a name="v0.57.0"></a>
 # [v0.57.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.0) - 2025-11-22
 
