@@ -12,13 +12,11 @@ env:
 jobs:
   cargo-test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        features:
-          - default
-          - rustc-hash
     steps:
     - uses: actions/checkout@v4
     - uses: dtolnay/rust-toolchain@stable
+    - uses: taiki-e/install-action@a37010ded18ff788be4440302bd6830b1ae50d8b # v2.68.25
+      with:
+        tool: cargo-hack@0.6.43
     - uses: Swatinem/rust-cache@v2
-    - run: cargo test --no-default-features --features '${{ matrix.features }}'
+    - run: cargo hack test --feature-powerset
