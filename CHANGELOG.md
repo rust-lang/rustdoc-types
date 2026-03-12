@@ -1,3 +1,12 @@
+<a name="v0.57.3"></a>
+# [v0.57.3](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.3) - 2026-03-12
+
+**Documentation Improvement**: Fix doctest that didn't compile.
+
+- Format Version: 57
+- Upstream Commit: [`cf951bae8758e387dcc2b2480ccd971cd6a15972`](https://github.com/rust-lang/rust/commit/cf951bae8758e387dcc2b2480ccd971cd6a15972)
+- Diff: [v0.57.2...v0.57.3](https://github.com/rust-lang/rustdoc-types/compare/v0.57.2...v0.57.3)
+
 <a name="v0.57.2"></a>
 # [v0.57.2](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.2) - 2026-03-12
 
