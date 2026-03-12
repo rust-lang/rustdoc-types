@@ -19,18 +19,20 @@
 //! ## `rkyv_0_8`
 //!
 //! We expose a `rkyv_0_8` feature, disabled by default. When enabled, it derives `rkyv`'s
-//! [`Archive`](rkyv::Archive), [`Serialize`](rkyv::Serialize) and [`Deserialize`](rkyv::Deserialize)
-//! traits for all types in this crate. Furthermore, it exposes the corresponding `Archived*` types
-//! (e.g. [`ArchivedId`] for [`Id`]).
+//! [`Archive`][3], [`Serialize`][4] and [`Deserialize`][5] traits for all types in this crate.
+//! Furthermore, it exposes the corresponding `Archived*` types (e.g. `ArchivedId` for [`Id`]).
 //!
 //! `rkyv` lets you works with JSON output without paying the deserialization cost _upfront_,
-//! thanks to [zero-copy deserialization][3].
+//! thanks to [zero-copy deserialization][6].
 //! You can perform various types of analyses on the `Archived*` version of the relevant types,
 //! incurring the full deserialization cost only for the subset of items you actually need.
 //!
 //! [1]: https://rust-lang.zulipchat.com/#narrow/channel/266220-t-rustdoc/topic/rustc-hash.20and.20performance.20of.20rustdoc-types/near/474855731
 //! [2]: https://crates.io/crates/rustc-hash
-//! [3]: https://rkyv.org/zero-copy-deserialization.html
+//! [3]: https://docs.rs/rkyv/0.8.15/rkyv/trait.Archive.html
+//! [4]: https://docs.rs/rkyv/0.8.15/rkyv/trait.Serialize.html
+//! [5]: https://docs.rs/rkyv/0.8.15/rkyv/trait.Deserialize.html
+//! [6]: https://rkyv.org/zero-copy-deserialization.html
 
 // # On `rkyv` Derives
 //
@@ -827,6 +829,45 @@ pub enum ItemEnum {
     },
 }
 
+impl ItemEnum {
+    /// Get just the kind of this item, but with no further data.
+    ///
+    /// ```rust
+    /// # use rustdoc_json_types::{ItemKind, ItemEnum};
+    /// let item = ItemEnum::ExternCrate { name: "libc".to_owned(), rename: None };
+    /// assert_eq!(item.item_kind(), ItemKind::ExternCrate);
+    /// ```
+    pub fn item_kind(&self) -> ItemKind {
+        match self {
+            ItemEnum::Module(_) => ItemKind::Module,
+            ItemEnum::ExternCrate { .. } => ItemKind::ExternCrate,
+            ItemEnum::Use(_) => ItemKind::Use,
+            ItemEnum::Union(_) => ItemKind::Union,
+            ItemEnum::Struct(_) => ItemKind::Struct,
+            ItemEnum::StructField(_) => ItemKind::StructField,
+            ItemEnum::Enum(_) => ItemKind::Enum,
+            ItemEnum::Variant(_) => ItemKind::Variant,
+            ItemEnum::Function(_) => ItemKind::Function,
+            ItemEnum::Trait(_) => ItemKind::Trait,
+            ItemEnum::TraitAlias(_) => ItemKind::TraitAlias,
+            ItemEnum::Impl(_) => ItemKind::Impl,
+            ItemEnum::TypeAlias(_) => ItemKind::TypeAlias,
+            ItemEnum::Constant { .. } => ItemKind::Constant,
+            ItemEnum::Static(_) => ItemKind::Static,
+            ItemEnum::ExternType => ItemKind::ExternType,
+            ItemEnum::Macro(_) => ItemKind::Macro,
+            ItemEnum::ProcMacro(pm) => match pm.kind {
+                MacroKind::Bang => ItemKind::Macro,
+                MacroKind::Attr => ItemKind::ProcAttribute,
+                MacroKind::Derive => ItemKind::ProcDerive,
+            },
+            ItemEnum::Primitive(_) => ItemKind::Primitive,
+            ItemEnum::AssocConst { .. } => ItemKind::AssocConst,
+            ItemEnum::AssocType { .. } => ItemKind::AssocType,
+        }
+    }
+}
+
 /// A module declaration, e.g. `mod foo;` or `mod foo {}`.
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[cfg_attr(feature = "rkyv_0_8", derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize))]
@@ -982,10 +1023,10 @@ pub enum VariantKind {
     /// }
     /// ```
     Struct {
-        /// The list of variants in the enum.
-        /// All of the corresponding [`Item`]s are of kind [`ItemEnum::Variant`].
+        /// The list of named fields in the variant.
+        /// All of the corresponding [`Item`]s are of kind [`ItemEnum::StructField`].
         fields: Vec<Id>,
-        /// Whether any variants have been removed from the result, due to being private or hidden.
+        /// Whether any fields have been removed from the result, due to being private or hidden.
         has_stripped_fields: bool,
     },
 }

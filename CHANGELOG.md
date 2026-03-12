@@ -1,3 +1,13 @@
+<a name="v0.57.2"></a>
+# [v0.57.2](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.2) - 2026-03-12
+
+**New Feature**: Add the `rkyv_0_8` Cargo feature, to derive traits for the [rkyv](https://rkyv.org/) zero-copy deserialization framework
+([rust#153283](https://github.com/rust-lang/rust/pull/153283)).
+
+- Format Version: 57
+- Upstream Commit: [`cf951bae8758e387dcc2b2480ccd971cd6a15972`](https://github.com/rust-lang/rust/commit/cf951bae8758e387dcc2b2480ccd971cd6a15972)
+- Diff: [v0.57.1...v0.57.2](https://github.com/rust-lang/rustdoc-types/compare/v0.57.1...v0.57.2)
+
 <a name="v0.57.1"></a>
 # [v0.57.1](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.1) - 2026-03-04
 
