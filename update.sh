@@ -22,6 +22,7 @@ repo="rust"
 
 curl -# https://raw.githubusercontent.com/${user}/${repo}/${ref}/src/rustdoc-json-types/lib.rs \
     | sed '/^pub type FxHashMap.*$/d' \
+    | sed 's/rustdoc_json_types/rustdoc_types/g' \
     > src/lib.rs
 
 curl -# https://raw.githubusercontent.com/${user}/${repo}/${ref}/src/rustdoc-json-types/tests.rs > src/tests.rs

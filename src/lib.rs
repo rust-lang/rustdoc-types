@@ -833,7 +833,7 @@ impl ItemEnum {
     /// Get just the kind of this item, but with no further data.
     ///
     /// ```rust
-    /// # use rustdoc_json_types::{ItemKind, ItemEnum};
+    /// # use rustdoc_types::{ItemKind, ItemEnum};
     /// let item = ItemEnum::ExternCrate { name: "libc".to_owned(), rename: None };
     /// assert_eq!(item.item_kind(), ItemKind::ExternCrate);
     /// ```
