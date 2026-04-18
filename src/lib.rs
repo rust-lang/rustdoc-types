@@ -8,7 +8,7 @@
 //! ## `rustc-hash`
 //!
 //! We expose a `rustc-hash` feature, disabled by default. This feature switches the
-//! [`std::collections::HashMap`] for [`rustc_hash::FxHashMap`] to improve the performance of said
+//! [`std::collections::HashMap`] for [`rustc_hash::FxHashMap`][2] to improve the performance of said
 //! `HashMap` in specific situations.
 //!
 //! `cargo-semver-checks` for example, saw a [-3% improvement][1] when benchmarking using the
