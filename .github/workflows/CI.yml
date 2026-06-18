@@ -19,4 +19,4 @@ jobs:
       with:
         tool: cargo-hack@0.6.43
     - uses: Swatinem/rust-cache@v2
-    - run: cargo hack test --feature-powerset
+    - run: cargo hack test --feature-powerset --locked
