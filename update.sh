@@ -27,4 +27,4 @@ curl -# https://raw.githubusercontent.com/${user}/${repo}/${ref}/src/rustdoc-jso
 
 curl -# https://raw.githubusercontent.com/${user}/${repo}/${ref}/src/rustdoc-json-types/tests.rs > src/tests.rs
 
-curl -# "https://api.github.com/repos/${user}/${repo}/commits?sha=${ref}&path=src/rustdoc-json-types/lib.rs" | pyjq '[0]["sha"]' > COMMIT.txt
+curl -# "https://api.github.com/repos/${user}/${repo}/commits?sha=${ref}&path=src/rustdoc-json-types" | pyjq '[0]["sha"]' > COMMIT.txt
