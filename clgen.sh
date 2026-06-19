@@ -30,6 +30,9 @@ if [[ $(cat tmp | grep $new_version | wc -l) -ne 1 ]]; then
 fi
 mv tmp Cargo.toml
 
+# Bump version in `Cargo.lock`
+cargo test
+
 date=$(date -u +'%Y-%m-%d')
 format_version=$(cat src/lib.rs | grep 'FORMAT_VERSION: u32 =' | col6 | sd ";" "")
 rustc_commit=$(cat COMMIT.txt)
@@ -58,7 +61,7 @@ rm tmp
 echo "First, edit the TODO in CHANGELOG.md"
 echo "Then, check the diff"
 echo "Finally, Run:"
-echo "git add Cargo.toml CHANGELOG.md COMMIT.txt src/"
+echo "git add Cargo.toml Cargo.lock CHANGELOG.md COMMIT.txt src/"
 echo "git commit -m $new_tag"
 echo "git tag $new_tag"
 echo "git push && git push --tags"
