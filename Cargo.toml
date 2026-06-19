@@ -6,7 +6,7 @@ license = "MIT OR Apache-2.0"
 description = "Types for rustdoc's json output"
 repository = "https://github.com/rust-lang/rustdoc-types"
 include = ["Cargo.toml", "CHANGELOG.md", "README.md", "LICENSE-MIT", "LICENSE-APACHE", "src/**/*.rs"]
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+rust-version = "1.85.0"
 
 [dependencies]
 serde = {version="1.0.186"}
