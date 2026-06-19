@@ -1,3 +1,12 @@
+<a name="v0.57.4"></a>
+# [v0.57.4](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.4) - 2026-06-19
+
+Add `rust-version = "1.85.0"` to `Cargo.toml`
+
+- Format Version: 57
+- Upstream Commit: [`fee82a37e9eabf8afe6db62c0177baaf63356a98`](https://github.com/rust-lang/rust/commit/fee82a37e9eabf8afe6db62c0177baaf63356a98)
+- Diff: [v0.57.3...v0.57.4](https://github.com/rust-lang/rustdoc-types/compare/v0.57.3...v0.57.4)
+
 <a name="v0.57.3"></a>
 # [v0.57.3](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.57.3) - 2026-03-12
 
