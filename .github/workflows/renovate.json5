@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>rust-lang/renovate"],
+   "packageRules": [
+    // Disabling Rust dependencies because we are only interested in GitHub Actions for now.
+    {
+      "enabled": false,
+      "matchCategories": ["rust"]
+    }
+  ]
+}
