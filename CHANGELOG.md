@@ -1,3 +1,12 @@
+# [v0.59.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.59.0) - 2026-06-26
+
+**Breaking change**: Add `Item::const_stability` field
+([rust#158343](https://github.com/rust-lang/rust/pull/158343))
+
+- Format Version: 59
+- Upstream Commit: [`fee82a37e9eabf8afe6db62c0177baaf63356a98`](https://github.com/rust-lang/rust/commit/f8973b70ce31656cfd69bde2d20e6e8240448080)
+- Diff: [v0.58.0...v0.59.0](https://github.com/rust-lang/rustdoc-types/compare/v0.58.0..v0.59.0)
+
 <a name="v0.58.0"></a>
 # [v0.58.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.58.0) - 2026-06-24
 

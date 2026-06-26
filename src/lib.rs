@@ -113,8 +113,8 @@ use serde_derive::{Deserialize, Serialize};
 // will instead cause conflicts. See #94591 for more. (This paragraph and the "Latest feature" line
 // are deliberately not in a doc comment, because they need not be in public docs.)
 //
-// Latest feature: Add `Item::stability`.
-pub const FORMAT_VERSION: u32 = 58;
+// Latest feature: Add `Item::const_stability`.
+pub const FORMAT_VERSION: u32 = 59;
 
 /// The root of the emitted JSON blob.
 ///
@@ -285,6 +285,8 @@ pub struct Item {
     /// - `#[doc = "Doc Comment"]` or `/// Doc comment`: see [`Self::docs`] instead.
     /// - `#[deprecated]` attributes: see the [`Self::deprecation`] field instead.
     /// - `#[stable]` and `#[unstable]` attributes: see the [`Self::stability`] field instead.
+    /// - `#[rustc_const_stable]` and `#[rustc_const_unstable]` attributes:
+    ///   see the [`Self::const_stability`] field instead.
     ///
     /// Attributes appear in pretty-printed Rust form, regardless of their formatting
     /// in the original source code. For example:
@@ -318,20 +320,31 @@ pub struct Item {
     /// most ordinary third-party crates usually have no data here.
     pub stability: Option<Box<Stability>>,
 
+    /// Stability information for using this item in const contexts, if any.
+    ///
+    /// This is separate from [`Self::stability`]. An item can be stable as regular API while its
+    /// const use is unstable. An unstable item may have no separate const-stability value here.
+    ///
+    /// This field is only populated for item kinds whose const behavior can have separate
+    /// stability information, such as const functions, const traits, const trait impls,
+    /// and associated items whose const behavior is controlled by a const trait or const impl.
+    pub const_stability: Option<Box<Stability>>,
+
     /// The type-specific fields describing this item.
     pub inner: ItemEnum,
 }
 
 /// Stability information for an item.
 ///
-/// This only refers to regular item stability: whether the item is stable or unstable
-/// as represented by the `#[stable]` or `#[unstable]` attributes.
-/// Const stability and default-body stability are different things and not captured here.
+/// In [`Item::stability`], this refers to regular item stability: whether the item is
+/// stable or unstable as represented by the `#[stable]` or `#[unstable]` attributes.
+/// In [`Item::const_stability`], this refers to using the item in const contexts,
+/// as represented by `#[rustc_const_stable]` or `#[rustc_const_unstable]`.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "rkyv_0_8", derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize))]
 #[cfg_attr(feature = "rkyv_0_8", rkyv(derive(Debug)))]
 pub struct Stability {
-    /// The stability feature associated with this item.
+    /// The feature associated with this stability record.
     ///
     /// For unstable items, this is the feature gate associated with the item.
     /// For stable items, this is the historical label recorded when the item was stabilized.
@@ -341,7 +354,6 @@ pub struct Stability {
     pub level: StabilityLevel,
 }
 
-/// Whether an item is stable or unstable as regular public API.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(feature = "rkyv_0_8", derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize))]
 #[cfg_attr(feature = "rkyv_0_8", rkyv(derive(Debug)))]
@@ -364,6 +376,8 @@ pub enum StabilityLevel {
 /// - `#[doc = "Doc Comment"]` or `/// Doc comment`. These are in [`Item::docs`] instead.
 /// - `#[deprecated]`. These are in [`Item::deprecation`] instead.
 /// - `#[stable]` and `#[unstable]`. These are in [`Item::stability`] instead.
+/// - `#[rustc_const_stable]` and `#[rustc_const_unstable]`. These are in
+///   [`Item::const_stability`] instead.
 pub enum Attribute {
     /// `#[non_exhaustive]`
     NonExhaustive,
