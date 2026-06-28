@@ -1,7 +1,7 @@
 [package]
 name = "rustdoc-types"
 version = "0.59.0"
-edition = "2018"
+edition = "2024"
 license = "MIT OR Apache-2.0"
 description = "Types for rustdoc's json output"
 repository = "https://github.com/rust-lang/rustdoc-types"
