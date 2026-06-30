@@ -1,3 +1,14 @@
+<a name="v0.60.0"></a>
+# [v0.60.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.59.0) - 2026-06-30
+
+**Breaking change**: Add `default_unstable` field into `Function`, `AssocConst` and `AssocType`.
+([rust#158468](https://github.com/rust-lang/rust/pull/158468))
+
+- Format Version: 60
+- Upstream Commit: [`bd938c5bfb48fe83ef8f2f54f562c2394c17d89f`](https://github.com/rust-lang/rust/commit/bd938c5bfb48fe83ef8f2f54f562c2394c17d89f)
+- Diff: [v0.59.0...v0.60.0](https://github.com/rust-lang/rustdoc-types/compare/v0.59.0..v0.60.0)
+
+<a name="v0.59.0"></a>
 # [v0.59.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.59.0) - 2026-06-26
 
 **Breaking change**: Add `Item::const_stability` field
