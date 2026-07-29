@@ -1,3 +1,12 @@
+<a name="v0.61.0"></a>
+# [v0.61.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.61.0) - 2026-07-29
+
+TODO: Changelog.
+
+- Format Version: 61
+- Upstream Commit: [`d1da7c52545d95a4458ca4abee868c9743223069`](https://github.com/rust-lang/rust/commit/d1da7c52545d95a4458ca4abee868c9743223069)
+- Diff: [v0.60.0...v0.61.0](https://github.com/rust-lang/rustdoc-types/compare/v0.60.0...v0.61.0)
+
 <a name="v0.60.0"></a>
 # [v0.60.0](https://github.com/rust-lang/rustdoc-types/releases/tag/v0.59.0) - 2026-06-30
 
