@@ -2,6 +2,9 @@ name: Publish to crates.io
 on:
   push:
     tags: ['v*']  # Triggers when pushing tags starting with 'v'
+
+permissions: {}
+
 jobs:
   publish:
     runs-on: ubuntu-latest
